@@ -1,2 +1,2 @@
 # BassOfBass.github.io
-My site
+My GitHub Pages site

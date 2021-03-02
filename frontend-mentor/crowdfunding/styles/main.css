@@ -1,0 +1,981 @@
+:root {
+  --color1: hsl(176, 50%, 47%);
+  --color2: hsl(176, 72%, 28%);
+  --color3: hsl(0, 0%, 15%);
+  --color4: hsl(0, 0%, 48%);
+  --color5: hsl(0, 0%, 85%);
+  --color6: hsl(0, 0%, 95%);
+  --color7: hsl(0, 0%, 100%);
+  --color-negative-primary: hsl(0, 100%, 50%);
+  --colour-submit-primary: hsl(176, 50%, 50%);
+  --colour-submit-secondary: hsl(176, 30%, 80%);
+  --duration-none: 0;
+  --duration-fast: 0.25s;
+  --duration-norm: 0.5s;
+  --duration-slow: 1s;
+  --duration-global: var(--duration-norm);
+  --outline-default-width: 3px;
+  --outline-default-colour: var(--color2);
+  --outline-default-style: dashed;
+  --outline-default: var(--outline-default-width) var(--outline-default-colour) var(--outline-default-style);
+}
+
+@media (prefers-reduced-motion) {
+  :root {
+    --duration-global: var(--duration-none);
+  }
+}
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 100%;
+  font-family: "Commissioner", sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  margin: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  transition-property: color, background-color, visibility, opacity, z-index, box-shadow, font-weight;
+  transition-duration: var(--duration-global);
+}
+
+*:focus {
+  outline: var(--outline-default);
+  outline-offset: 2px;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  color: var(--color3);
+  background-color: var(--color5);
+  padding: 0;
+  margin: 0;
+}
+
+body > * {
+  flex: 0 1 auto;
+  padding: 1em;
+}
+
+@media (min-width: 50em) {
+  body > * {
+    padding: 2em;
+  }
+}
+main {
+  flex: 1 1 auto;
+  max-width: 720px;
+}
+
+section {
+  background-color: var(--color6);
+  border-radius: 10px;
+  padding: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+article {
+  margin: 1em 0;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  padding: 0.5em 0;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+p, li, dt, dd {
+  line-height: 1.5;
+}
+
+button, input, optgroup, select, textarea {
+  box-sizing: border-box;
+  min-width: 44px;
+  min-height: 44px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 1em 0;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+input, textarea {
+  color: #000;
+  caret-color: inherit;
+  background-color: #fff;
+}
+
+form {
+  max-width: var(--width-mobile);
+  border: 1px solid var(--colour0-primary);
+  padding: 1em;
+  border-radius: 1em;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  display: table;
+  box-sizing: border-box;
+  max-width: 100%;
+  color: inherit;
+  white-space: normal;
+  border: 1px solid;
+  padding: 0.5em;
+}
+
+label {
+  color: var(--colour0-primary);
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+input {
+  border: 2px solid;
+  transition: var(--duration-global);
+}
+
+input:required {
+  border-color: var(--colour-submit-primary);
+}
+
+input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 6px 6px var(--colour-submit-primary);
+  outline: none;
+}
+
+textarea {
+  overflow: auto;
+}
+
+select {
+  cursor: pointer;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+button {
+  color: var(--colour0-primary);
+  background-color: var(--colour0-secondary);
+  border: 1px solid;
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  -webkit-appearance: button;
+  transition-duration: var(--duration-global);
+}
+
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button::-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+button:focus {
+  border-color: var(--colour0-primary);
+  box-shadow: 0 0 5px 5px inherit;
+  outline: none;
+}
+
+button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+*::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+button:disabled, textarea:disabled, input:disabled, select:disabled {
+  cursor: not-allowed;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+*[hidden] {
+  display: none;
+}
+
+button[type=button], button[type=reset], button[type=submit], input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+}
+
+button[type=button]::-moz-focus-inner, button[type=reset]::-moz-focus-inner, button[type=submit]::-moz-focus-inner, input[type=button]::-moz-focus-inner, input[type=reset]::-moz-focus-inner, input[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button[type=button]:-moz-focusring, button[type=reset]:-moz-focusring, button[type=submit]:-moz-focusring, input[type=button]:-moz-focusring, input[type=reset]:-moz-focusring, input[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  width: auto;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=checkbox]:disabled, input[type=radio]:disabled {
+  cursor: not-allowed;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+label + input[type=file] {
+  opacity: 0;
+}
+
+button[type=button] {
+  color: var(--colour0-primary);
+  background-color: var(--colour0-secondary);
+  background-image: radial-gradient(var(--colour0-secondary), var(--colour0-secondary), var(--colour0-primary));
+}
+
+button[type=button]:focus {
+  outline: var(--outline-default);
+}
+
+button[type=button]:active {
+  color: var(--colour0-secondary);
+  background-color: var(--colour0-primary);
+  background-image: radial-gradient(var(--colour0-primary), var(--colour0-primary), var(--colour0-secondary));
+}
+
+button[type=submit] {
+  color: var(--colour-submit-primary);
+  background-color: var(--colour-submit-secondary);
+  background-image: radial-gradient(var(--colour-submit-secondary), var(--colour-submit-secondary), var(--colour-submit-primary));
+}
+
+button[type=submit]:focus {
+  outline: var(--outline-default);
+}
+
+button[type=submit]:active {
+  color: var(--colour-submit-secondary);
+  background-color: var(--colour-submit-primary);
+  background-image: radial-gradient(var(--colour-submit-primary), var(--colour-submit-primary), var(--colour-submit-secondary));
+}
+
+body.modal {
+  overflow-y: hidden;
+}
+
+.buttons > * {
+  width: auto;
+}
+
+.buttons .pay-to-pay {
+  padding: 0.5em 2em;
+  color: var(--color5);
+  background-color: var(--color2);
+  border-radius: 35px;
+}
+
+.buttons .pay-to-pay:active {
+  color: var(--color1);
+  background-color: var(--color5);
+}
+
+.buttons .pay-to-pay:disabled {
+  color: var(--color6);
+  background-color: var(--color4);
+  border: none;
+}
+
+.close {
+  text-align: end;
+}
+
+.close > * {
+  width: auto;
+}
+
+.close > button {
+  color: var(--color6);
+  background-color: var(--color-negative-primary);
+  border-radius: 50%;
+  border-color: var(--color-negative-primary);
+  margin: 0;
+}
+
+.close > button:active {
+  color: var(--color-negative-primary);
+  background-color: var(--color6);
+}
+
+.progress-bar {
+  position: relative;
+}
+
+.progress-bar span {
+  position: absolute;
+}
+
+.gheader {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  padding: 0 0 8em 0;
+}
+
+.gheader > * {
+  padding: 1em;
+}
+
+.gheader .hero-image {
+  position: absolute;
+  z-index: -1;
+  padding: 0;
+  align-self: stretch;
+}
+
+.gheader .hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.gheader .glogo {
+  vertical-align: middle;
+}
+
+.gheader .gburger {
+  border-radius: 50%;
+}
+
+.gheader .gburger .close-icon {
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.gheader .gburger.close {
+  text-align: center;
+}
+
+.gheader .gburger.close .burger-icon {
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.gheader .gburger.close .close-icon {
+  position: relative;
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (min-width: 50em) {
+  .gheader .gburger {
+    display: none;
+  }
+}
+.gheader .burger-wrapper {
+  position: absolute;
+  top: 85%;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  height: 100vh;
+  background-image: linear-gradient(#262626, rgba(38, 38, 38, 0.3));
+}
+
+.gheader .burger-wrapper.show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+
+.gheader .burger-wrapper .gnav {
+  background-color: var(--color7);
+  border-radius: 10px;
+}
+
+.gheader .burger-wrapper .gnav .glink {
+  font-size: 1.25em;
+  padding: 0.75em;
+}
+
+.gheader .burger-wrapper .gnav .glink:not(:last-child) {
+  border-bottom: 1px solid var(--color5);
+}
+
+.gheader .burger-wrapper .gnav .glink a {
+  color: var(--color3);
+  text-decoration: none;
+}
+
+.gheader > .gnav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1em;
+}
+
+.gheader > .gnav .glink {
+  background-color: rgba(26, 26, 26, 0.4);
+  padding: 1em;
+}
+
+.gheader > .gnav .glink a {
+  font-size: 1.3em;
+  color: var(--color6);
+  text-decoration: none;
+}
+
+.gheader > .gnav .glink a:visited {
+  color: var(--color6);
+  text-decoration: none;
+}
+
+@media (max-width: 50em) {
+  .gheader > .gnav {
+    display: none;
+  }
+}
+@media (min-width: 50em) {
+  .gheader {
+    padding: 0 0 12em;
+  }
+}
+section.hero {
+  padding-top: 2em;
+  position: relative;
+}
+
+section.hero > * {
+  padding: 1em;
+}
+
+section.hero .text {
+  text-align: center;
+}
+
+section.hero .master-logo {
+  position: absolute;
+  top: -14%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 0;
+}
+
+section.hero .buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-content: center;
+}
+
+section.hero .buttons .bookmark {
+  flex: 0 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  background-color: var(--color5);
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 0 1em 0 0;
+}
+
+section.hero .buttons .bookmark.marked .bookmark-icon {
+  background-color: var(--color2);
+}
+
+section.hero .buttons .bookmark.marked .sign {
+  color: var(--color2);
+}
+
+section.hero .buttons .bookmark .bookmark-icon {
+  background-color: var(--color3);
+  border-radius: 50%;
+}
+
+section.hero .buttons .bookmark .sign {
+  font-weight: bold;
+}
+
+section.numbers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+}
+
+section.numbers .money-list {
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+}
+
+section.numbers .money-list > div {
+  flex: 1 0 auto;
+  margin: 0 auto 1em;
+}
+
+section.numbers .money-list > div dt {
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+section.numbers .money-list > div dd {
+  color: var(--color4);
+}
+
+section.numbers .money-flow {
+  flex: 1 0 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+}
+
+section.numbers .money-flow progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+section.numbers .money-flow progress .progress-bar span {
+  background-color: var(--color1);
+}
+
+section.numbers .money-flow progress::-webkit-progress-bar {
+  background-color: var(--color5);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+section.numbers .money-flow progress::-webkit-progress-value {
+  background-color: var(--color1);
+}
+
+section.numbers .money-flow progress::-moz-progress-bar {
+  border-radius: 10px;
+  background-color: var(--color1);
+}
+
+@media (min-width: 50em) {
+  section.numbers {
+    padding: 3em 3em;
+  }
+}
+section.details {
+  padding: 1.5em 1em;
+}
+
+section.details h2 {
+  padding: 0.75em 0;
+}
+
+section.details .description {
+  margin: 1.5em 0;
+}
+
+section.details .tier {
+  background-color: var(--color6);
+  border-radius: 15px;
+  border: 2px solid var(--color4);
+}
+
+section.details .tier.out {
+  opacity: 0.5;
+}
+
+section.details .tier > * {
+  padding: 1em;
+}
+
+section.details .tier header {
+  grid-area: header;
+}
+
+@media (min-width: 50em) {
+  section.details .tier header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+section.details .tier .title {
+  grid-area: title;
+}
+
+section.details .tier .price {
+  grid-area: price;
+  color: var(--color1);
+}
+
+section.details .tier .desc {
+  grid-area: desc;
+}
+
+section.details .tier .quantity {
+  grid-area: quantity;
+  align-self: center;
+  word-spacing: 0.5em;
+}
+
+section.details .tier .quantity .quant {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+section.details .tier .buttons {
+  grid-area: buttons;
+}
+
+@media (min-width: 50em) {
+  section.details .tier .buttons {
+    text-align: end;
+  }
+}
+@media (min-width: 50em) {
+  section.details .tier {
+    display: grid;
+    grid-template-areas: "header header" "desc desc" "quantity buttons";
+    padding: 2em;
+  }
+}
+@media (min-width: 50em) {
+  section.details {
+    padding: 3em 3em;
+  }
+}
+form.pledges {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  z-index: -1;
+  height: 100%;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 8em;
+}
+
+form.pledges.show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+
+form.pledges .pledge-choices {
+  position: relative;
+  max-width: 720px;
+  background-color: var(--color7);
+  border-radius: 20px;
+  border: none;
+  margin: 0 auto;
+}
+
+form.pledges .pledge-choices.hide {
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+
+form.pledges .pledge-choices legend {
+  float: left;
+  font-weight: bold;
+  font-size: 1.3em;
+  border: none;
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+@media (min-width: 50em) {
+  form.pledges .pledge-choices {
+    padding: 2em;
+  }
+}
+form.pledges .close {
+  float: right;
+}
+
+form.pledges .text {
+  clear: both;
+}
+
+form.pledges .pledge {
+  border-radius: 10px;
+  border: 2px solid var(--color4);
+  margin: 1em 0;
+}
+
+form.pledges .pledge.out {
+  opacity: 0.5;
+}
+
+form.pledges .pledge:focus-within {
+  border-color: var(--color1);
+}
+
+form.pledges .pledge > * {
+  padding: 1em;
+}
+
+form.pledges .pledge .radio {
+  grid-area: radio;
+  display: grid;
+  grid-template-areas: "reward title" "reward price";
+}
+
+@media (min-width: 50em) {
+  form.pledges .pledge .radio {
+    grid-template-areas: "reward title price";
+    gap: 1em;
+    align-items: center;
+  }
+}
+form.pledges .pledge .radio:hover {
+  color: var(--color1);
+  font-weight: bold;
+  border-color: var(--color1);
+}
+
+form.pledges .pledge .reward {
+  grid-area: reward;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 50%;
+  border-radius: 50%;
+  border: 1px solid var(--color4);
+  padding: 0;
+  transition-property: border-width;
+}
+
+form.pledges .pledge .reward:checked {
+  border-width: 1em;
+}
+
+form.pledges .pledge .title {
+  grid-area: title;
+  font-weight: bold;
+  padding: 0.5em 0;
+}
+
+form.pledges .pledge .price {
+  grid-area: price;
+  color: var(--color1);
+}
+
+form.pledges .pledge .details {
+  grid-area: details;
+}
+
+form.pledges .pledge .quantity {
+  grid-area: quantity;
+  word-spacing: 0.5em;
+  justify-self: end;
+  align-self: center;
+}
+
+form.pledges .pledge .quant {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+@media (min-width: 50em) {
+  form.pledges .pledge {
+    display: grid;
+    grid-template-areas: "radio quantity" "details details" "confirmation confirmation";
+    gap: 1em;
+    padding: 2em;
+  }
+}
+form.pledges .confirmation {
+  grid-area: confirmation;
+  position: relative;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  border-top: 2px solid var(--color4);
+}
+
+form.pledges .confirmation.appended {
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+}
+
+form.pledges .confirmation label {
+  text-align: center;
+}
+
+form.pledges .confirmation div {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 1em;
+}
+
+form.pledges .confirmation div::before {
+  position: absolute;
+  left: 15%;
+  content: "$";
+}
+
+form.pledges .confirmation div > * {
+  border-radius: 20px;
+}
+
+form.pledges .confirmation div input {
+  -moz-appearance: textfield;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid var(--color4);
+}
+
+form.pledges .confirmation div input::-webkit-outer-spin-button, form.pledges .confirmation div input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media (min-width: 50em) {
+  form.pledges .confirmation {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+form.pledges .success {
+  position: absolute;
+  top: 8em;
+  left: 1em;
+  right: 1em;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  max-width: 720px;
+  background-color: var(--color7);
+  border-radius: 20px;
+  padding: 1.5em 1.5em;
+  margin: auto;
+}
+
+form.pledges .success.show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+
+form.pledges .success h2 {
+  text-align: center;
+  padding: 1em 0;
+}
+
+form.pledges .success .check {
+  text-align: center;
+}
+
+form.pledges .success .buttons {
+  text-align: center;
+}
+
+.gfooter {
+  width: 100%;
+  border-top: 2px solid var(--color3);
+  background-color: var(--color4);
+  padding: 2em;
+}
+
+.gfooter .glinks {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 2em;
+}
+
+.gfooter .glinks a {
+  color: var(--color6);
+  font-size: 1.2em;
+  text-decoration: none;
+  border-bottom: 0.125em solid transparent;
+}
+
+.gfooter .glinks a:hover {
+  border-bottom: 0.125em solid;
+}
+
+/*# sourceMappingURL=main.css.map */
+
+/*# sourceMappingURL=main.css.map */
