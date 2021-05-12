@@ -11,16 +11,7 @@ mixin globalNav()
         li.navigation-bar__nav-item
           a.navigation-bar__nav-link(href=item.url) #{item.title}
 
-mixin errorList(errors)
-  - const isErrors = errors && errors.length !== 0
-  aside.gerrors(
-    class= isErrors && "show"
-  )
-    p Errors:
-    ul.errorlist
-      if isErrors
-        each error in errors
-          li #{error}
+
 
 mixin svgIcon(name, className=false)
   svg.svg-icon(

@@ -1,0 +1,15 @@
+.image-link {
+  padding: 0;
+  border: none;
+
+  &:link {}
+  &:visited {}
+  &:focus {}
+  &:hover {
+    background-color: transparent;
+    border: none;
+  }
+  &:active {
+    background-color: transparent;
+  }
+}

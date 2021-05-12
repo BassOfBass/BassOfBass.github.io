@@ -11,7 +11,7 @@ const webpackConfig = {
     index: "./src/index.js",
     FMeasyBank: "./src/frontend-mentor/easybank/easybank.js",
     FMcrowdFunding: "./src/frontend-mentor/crowdfunding/crowdfunding.js",
-    FMtodoApp: "./src/frontend-mentor/todo-app/todo-app.js"
+    
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -39,16 +39,9 @@ const webpackConfig = {
       template: "./src/frontend-mentor/crowdfunding/crowdfunding.pug",
       chunks: ['FMcrowdFunding'],
     }),
-    new HTMLWebpackPlugin({
-      filename: "frontend-mentor/todo-app/index.html",
-      template: "./src/frontend-mentor/todo-app/todo-app.pug",
-      chunks: ['FMtodoApp']
-    }),
+    
   ],
   resolve: {
-    fallback: {
-      "crypto": false
-    },
     extensions: [".js", "/_index.js", "/index.js"],
     alias: {
       ["@wp/assets"]: path.resolve(__dirname, "src/assets"),

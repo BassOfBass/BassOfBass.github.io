@@ -1,0 +1,8 @@
+include ./todo-list.pug
+
+mixin componentContainer()
+  div.component-container(
+    hidden
+    style="display: none;"
+  )
+    +todoItemSkeleton()

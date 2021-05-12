@@ -1,7 +1,9 @@
-@import "variables";
-@import "base";
-@import "attributes";
-
+@use "styles/variables";
+@use "styles/base";
+@use "styles/attributes";
+@use "components/component-container.scss";
+@use "components/svg-icons.scss";
+@use "components/todo-list.scss";
 
 .gheader {
   display: flex;
@@ -17,8 +19,6 @@
     left: 0;
     right: 0;
     z-index: -1;
-
-    
   }
 }
 
@@ -67,41 +67,7 @@ section.todo-app {
     color: green;
     border-color: green;
   }
-  
-  .todo-list {
-    list-style: none;
-    padding: 0
-  }
-  
-  .todo-item {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1em;
-    border-bottom: 1px solid var(--colour0-quarternary);
-  }
-  
-  .todo-task {
-    flex: 1 1 auto;
-  
-    .completed & {
-      text-decoration: line-through;
-      color: var(--colour0-tertiary);
-    }
-  }
-  .todo-check {
-    border-radius: 50%;
-    border-color: var(--colour0-primary);
-  }
-  .todo-remove {
-    flex: 0 0 auto;
-    font-weight: bold;
-    color: hsl(0, 100%, 50%);
-    border-color: hsl(0, 100%, 50%);
-    border-radius: 50%;
-  }
-  
+
   .todo-filters {
     text-align: justify;
   }

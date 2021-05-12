@@ -1,0 +1,10 @@
+mixin imageLink(src, srcset=src, alt=src, lazy=true)
+  a.image-link(href="http://")
+    picture.image-link__picture
+      img.image-link__image(
+        src=src, 
+        alt=alt, 
+        srcset=srcset, 
+        loading= lazy ? "lazy" : "eager"
+      )
+  

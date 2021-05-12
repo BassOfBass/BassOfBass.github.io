@@ -1,0 +1,10 @@
+mixin errorList(errors)
+  - const isErrors = errors && errors.length !== 0
+  aside.gerrors(
+    class= isErrors && "show"
+  )
+    p Errors:
+    ul.errorlist
+      if isErrors
+        each error in errors
+          li #{error}

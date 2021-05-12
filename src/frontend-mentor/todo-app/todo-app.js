@@ -1,25 +1,14 @@
-import "./styles/main.scss";
-import iconCheck from "./assets/icon-check.svg";
-import { nanoidHTML } from "@wp/lib/_index";
-
-class TodoTask {
-  /**
-   * @param {string} task
-   */
-  constructor(task) {
-    this.task = task;
-    this.id = nanoidHTML();
-    this.isCompleted = false;
-    this.isRemoved = false;
-    this.dateCreated = new Date().toISOString();
-    this.dateCompleted = null;
-    this.dateRemoved = null;
-  }
-}
+import "./todo-app.scss";
+import "./assets";
+import { createTodoListItem, TodoTask } from "./components/todo-list";
+import { ComponentContainer } from "./components/component-container";
 
 const globalTheme = document.querySelector(".gtheme");
 const header = document.querySelector(".gheader");
+const footer = document.querySelector(".gfooter");
 const main = document.querySelector("main");
+
+export const { getComponent } = ComponentContainer(footer);
 
 initHeader(header, globalTheme);
 initMain(main);
@@ -49,9 +38,13 @@ function initMain(main) {
    * @type HTMLFormElement
    */
   const newTodoForm = main.querySelector(".new-todo");
-  const todoList = main.querySelector(".todo-list")
+  /**
+   * @type {HTMLUListElement}
+   */
+  const todoList = main.querySelector(".todo-list");
 
   newTodoForm.addEventListener("submit", addNewTodo);
+  todoList.addEventListener("click", removeTodo);
 
   /**
    * @param {Event} event 
@@ -75,30 +68,9 @@ function initMain(main) {
   }
 
   /**
-   * @param {TodoTask} todoTask 
-   * @returns {HTMLLIElement}
+   * @param {MouseEvent} event 
    */
-  function createTodoListItem(todoTask) {
-    const li = document.createElement("li");
-    const p = document.createElement("p");
-    const buttonRemove = document.createElement("button");
-    const buttonCheck = document.createElement("button");
-    
-    li.classList.add("todo-item");
-    p.classList.add("todo-task");
-    buttonRemove.classList.add("todo-remove");
-    buttonCheck.classList.add("todo-check");
-    buttonRemove.type = "button";
-    buttonCheck.type = "button";
-    li.id = todoTask.id;
-    p.textContent = todoTask.task;
-    buttonRemove.textContent = "―";
-
-    buttonCheck.appendChild(iconCheck);
-    li.appendChild(buttonCheck);
-    li.appendChild(p);
-    li.appendChild(buttonRemove);
-
-    return li;
+  function removeTodo(event) {
+    event.stopPropagation();
   }
 }

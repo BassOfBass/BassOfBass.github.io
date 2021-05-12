@@ -1,22 +1,15 @@
 const path = require("path");
-const { nanoid } = require("nanoid");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
-// @ts-expect-error
-global.nanoid = nanoid;
-
 /**
  * @type {import("webpack-dev-server").Configuration}
  */
 const devServerConfig = {
-  contentBase: path.resolve(__dirname, 'public'),
-  publicPath: "/",
   host: 'localhost',
   port: 3000,
-  hot: true,
 };
 
 /**
@@ -26,6 +19,9 @@ const config = {
   mode: "development",
   devtool: "inline-source-map",
   devServer: devServerConfig,
+  entry: {
+    FMtodoApp: "./src/frontend-mentor/todo-app/todo-app.js"
+  }
   plugins: [
     // @ts-expect-error
     new MiniCssExtractPlugin({
@@ -42,19 +38,17 @@ const config = {
       template: "./src/pages/previews/editable-textarea.pug",
       chunks: ["index"],
     }),
+    new HTMLWebpackPlugin({
+      filename: "frontend-mentor/todo-app/index.html",
+      template: "./src/frontend-mentor/todo-app/todo-app.pug",
+      chunks: ['FMtodoApp']
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.pug$/,
-        use: [
-          { 
-            loader: 'simple-pug-loader',
-            options: {
-              globals: ["nanoid"]
-            }
-          }
-        ]
+        loader: 'simple-pug-loader'
       },
       {
         test: /\.m?js$/,

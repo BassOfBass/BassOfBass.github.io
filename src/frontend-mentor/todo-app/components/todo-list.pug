@@ -1,0 +1,66 @@
+include ./svg-icons.pug
+
+mixin todoList()
+  -
+    const todos = [
+      { 
+        task: "Complete online javascript course",
+        id: "uVMEeKJCVgYFoQbvjdFsZh",
+        isCompleted: true,
+        dateAdded: new Date().toISOString(),
+        dateCompleted: new Date().toISOString()
+      },
+      { 
+        task: "Jog around the park 3x",
+        id: "uQFspzch1hQGTSUxVeVd7W",
+        isCompleted: false,
+        dateAdded: new Date().toISOString(),
+        dateCompleted: null
+      },
+      { 
+        task: "10 minutes meditation",
+        id: "uEUU-5GLdeWQ2SrKEmXAAx",
+        isCompleted: false,
+        dateAdded: new Date().toISOString(),
+        dateCompleted: null
+      },
+      { 
+        task: "Read for 1 hour",
+        id: "u1DASzQ_rJ_z8iZNJLyEkQ",
+        isCompleted: false,
+        dateAdded: new Date().toISOString(),
+        dateCompleted: null
+      },
+      { 
+        task: "Pick up groceries",
+        id: "uNJyrjom60TPtnYMW_Dqzd",
+        isCompleted: false,
+        dateAdded: new Date().toISOString(),
+        dateCompleted: null
+      },
+      { 
+        task: "Complete Todo App on Frontend Mentor",
+        id: "uKykCAoUxllwELTMtnVPa-",
+        isCompleted: false,
+        dateAdded: new Date().toISOString(),
+        dateCompleted: null
+      },
+    ]
+  ul.todo-list
+    each todo in todos
+      li.todo-list__item(
+        id= todo.id
+        class= todo.isCompleted && "todo-list__item--completed"
+      ) 
+        button.todo-list__check(type="button")
+          +svgIcon("check")
+        p.todo-list__task #{todo.task}
+        button.todo-list__remove(type="button") ―
+
+mixin todoItemSkeleton()
+  li.todo-list
+    button.todo-list__check(type="button")
+      +svgIcon("check")
+    p.todo-list__task
+    button.todo-list__remove(type="button") ―
+
