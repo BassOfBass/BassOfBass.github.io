@@ -1,0 +1,10 @@
+extends ../../layout.pug
+
+block content
+  h1 Editable Textarea
+  section.site-section.site-section--textarea
+    label(for="code-area") Enter HTML Source Code:
+    textarea#code-area(spellcheck="false")
+
+    pre#highlighting(aria-hidden="true")
+      code#highlighting-content.language-html

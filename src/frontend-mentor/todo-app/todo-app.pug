@@ -1,0 +1,165 @@
+mixin iconCheck()
+  svg(
+    class="icon-check"
+    xmlns="http://www.w3.org/2000/svg",
+    width="11",
+    height="9",
+  )
+    path(fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6")
+
+mixin iconCross()
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+
+mixin iconMoon()
+  svg(
+    class="icon-moon"
+    xmlns="http://www.w3.org/2000/svg", width="26", 
+    height="26"
+  )
+    path(
+      fill="#FFF", 
+      fill-rule="evenodd", 
+      d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"
+    )
+
+mixin iconSun()
+  svg(
+    xmlns="http://www.w3.org/2000/svg",
+    width="26",
+    height="26",
+  )
+    path(fill="#FFF" fill-rule="evenodd" d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z")
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(
+      rel="icon", 
+      type="image/png",
+      sizes="32x32"
+      href= require("@wp/assets/favicon-32x32.png"), 
+    )
+    link(rel="preconnect" href="https://fonts.gstatic.com")
+    link(
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap",
+    )
+    title Frontend Mentor | Todo app
+
+  body.gtheme
+    header.gheader
+      div.gheader-image
+        picture.light
+            img(
+              srcset= `${require("./assets/bg-mobile-light.jpg")} 375w, ${require("./assets/bg-desktop-light.jpg")}`,
+              src= require("./assets/bg-desktop-light.jpg"), 
+              alt="light theme background"
+            )
+        picture.dark
+          img(
+            srcset= `${require("./assets/bg-mobile-dark.jpg")} 375w, ${require("./assets/bg-desktop-dark.jpg")}`,
+            src= require("./assets/bg-desktop-dark.jpg"), 
+            alt="dark theme background"
+          )
+
+      div.glogo
+        a(href="/frontend-mentor/todo-app") Todo
+      div.gswitch
+        button.gswitch-button(type="button")
+          +iconMoon()
+          +iconSun()
+
+    main.gmain
+      section.todo-app
+        form.new-todo
+          div
+            label.task-label(for="new-task") Create new todo:
+            input#new-task.new-task(
+              type="text", 
+              name="todo-task",
+              min-length="3",
+              max-length="55",
+              autocomplete="off",
+              required
+            )
+          div
+            button.todo-add(type="submit") +
+
+        div.todo-panel
+          -
+            const todoList = [
+              { 
+                task: "Complete online javascript course",
+                id: nanoid(),
+                isCompleted: true,
+                dateAdded: new Date().toISOString(),
+                dateCompleted: new Date().toISOString()
+              },
+              { 
+                task: "Jog around the park 3x",
+                id: nanoid(),
+                isCompleted: false,
+                dateAdded: new Date().toISOString(),
+                dateCompleted: null
+              },
+              { 
+                task: "10 minutes meditation",
+                id: nanoid(),
+                isCompleted: false,
+                dateAdded: new Date().toISOString(),
+                dateCompleted: null
+              },
+              { 
+                task: "Read for 1 hour",
+                id: nanoid(),
+                isCompleted: false,
+                dateAdded: new Date().toISOString(),
+                dateCompleted: null
+              },
+              { 
+                task: "Pick up groceries",
+                id: nanoid(),
+                isCompleted: false,
+                dateAdded: new Date().toISOString(),
+                dateCompleted: null
+              },
+              { 
+                task: "Complete Todo App on Frontend Mentor",
+                id: nanoid(),
+                isCompleted: false,
+                dateAdded: new Date().toISOString(),
+                dateCompleted: null
+              },
+            ]
+          ul.todo-list
+            each todo in todoList
+              li.todo-item(
+                id= todo.id
+                class= todo.isCompleted && "completed"
+              ) 
+                button.todo-check(type="button")
+                  +iconCheck()
+                p.todo-task #{todo.task}
+                button.todo-remove(type="button") ―
+                
+
+        div.todo-buttons
+          p 5 items left
+          div
+            button(type="button") Clear Completed
+
+          div.todo-filters
+            button.todo-filter(type="button") All
+            button.todo-filter(type="button") Active
+            button.todo-filter(type="button") Completed
+          
+          
+
+        p Drag and drop to reorder list
+
+    footer.gfooter
+      address
+        a(href="https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW") Challenge

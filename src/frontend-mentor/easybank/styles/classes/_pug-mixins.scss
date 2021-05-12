@@ -1,0 +1,49 @@
+// burgerButton
+.burger-icon {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  & .burger-line {
+    flex: 0 0;
+    width: 100%;
+    background-color: var(--colour-neutral-primary);
+    padding: 0.0625em;
+    margin: 0.25em auto;
+    transform-origin: 10px 1px;
+    transition-property: transform, opacity, width;
+
+    &:nth-child(2) {
+      background-color: var(--colour0-primary);
+    }
+  }
+
+  &.close {
+    background-color: var(--color-negative-primary);
+    
+    & .burger-line {
+      width: 60%;
+      background-color: var(--colour0-primary);
+      margin: 0;
+
+      &:first-child {
+        
+        transform: rotate(45deg);
+      }
+      
+
+      &:nth-child(2) {
+        width: 0;
+        opacity: 0;
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

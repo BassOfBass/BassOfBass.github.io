@@ -1,0 +1,22 @@
+/* css switchers */
+.hidden-switch {
+  padding: 0.5em;
+}
+
+.hidden-switcher {
+
+  & + * {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &:checked + * {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+/* END css switchers */
+
+/* image link */
+
+/* END image link */

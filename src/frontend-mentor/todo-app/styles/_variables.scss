@@ -1,0 +1,60 @@
+/* SASS variables */
+$width-mobile: 375px;
+$width-desktop: 1440px;
+
+:root {
+  --colour0-primary: hsl(235, 21%, 11%);
+  --colour0-secondary: hsl(0, 0%, 98%);
+  --colour0-tertiary: hsl(234, 11%, 52%);
+  --colour0-quarternary: hsl(233, 11%, 84%);
+  
+  // primary
+  --bright-blue: hsl(220, 98%, 61%);
+  --check-background: linear-gradient(
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+
+  // Light Theme
+  --very-light-grayish-blue: hsl(236, 33%, 92%);
+  --dark-grayish-blue: hsl(236, 9%, 61%);
+  --very-dark-grayish-blue: hsl(235, 19%, 35%);
+  // Dark Theme
+  --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --light-grayish-blue: hsl(234, 39%, 85%);
+  --light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue: hsl(237, 14%, 26%);
+
+  // durations for transition and transform properties
+  --duration-none: 0;
+  --duration-fast: 0.25s;
+  --duration-norm: 0.5s;
+  --duration-slow: 1s;
+  --duration-global: var(--duration-fast);
+
+  --outline-default-width: 3px;
+  --outline-default-colour: var(--colour0-primary);
+  --outline-default-style: dashed;
+  --outline-default: 
+    var(--outline-default-width) 
+    var(--outline-default-colour) 
+    var(--outline-default-style);
+
+  @media (prefers-reduced-motion) {
+    --duration-global: var(--duration-none);
+  }
+}
+
+.gtheme {
+  color: var(--colour0-primary);
+  background-color: var(--colour0-secondary);
+
+  &.dark {
+    --colour0-primary: hsl(0, 0%, 98%);
+    --colour0-secondary: hsl(235, 21%, 11%);
+    --colour0-tertiary: hsl(233, 11%, 84%);
+    --colour0-quarternary: hsl(234, 11%, 52%);
+  }
+}

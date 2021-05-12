@@ -1,0 +1,112 @@
+section.top {
+  
+  @media screen and (min-width: 50em) {
+    display: grid;
+    grid-template-areas: 
+      ". intro"
+      "heading intro"
+      "desc intro"
+      "invite intro"
+      ". intro"
+    ;
+    place-items: center start;
+    padding-left: 5em;
+    padding-right: 0;
+  }
+
+  & .intro {
+    position: relative;
+    grid-area: intro;
+    overflow: hidden;
+    text-align: center;
+    padding: 0;
+  
+    & .background {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+      
+
+      @media screen and (min-width: 50em) {
+        object-position: -2em -15em;
+        object-fit: none;
+      }
+    }
+  }
+  
+  & .phones {
+    position: absolute;
+    top: -25%;
+    left: 0;
+    right: 0;
+    width: auto;
+    max-height: 100%;
+    margin: auto;
+
+    @media screen and (min-width: 50em) {
+      top: -10%;
+    }
+  }
+
+  & h1 {
+    grid-area: heading;
+  }
+
+  & p {
+    padding: 1em 0;
+    grid-area: desc;
+  }
+
+  & .invite {
+    grid-area: invite;
+    margin: 1em 0;
+
+    @media screen and (min-width: 50em) {
+      text-align: start;
+    }
+  }
+}
+
+section.landing {
+  background-color: var(--colour-neutral-secondary);
+  padding-top: 2em;
+
+  & h2 {
+    margin: 0.25em 0;
+  }
+  & .desc {
+    max-width: 30em;
+  }
+
+  & .perks {
+    padding: 1em 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 1em 1.5em;
+
+    & .perk {
+      flex: 0 1 20em;
+      
+      & figure,
+      & dt {
+        text-align: center;
+
+        @media screen and (min-width: 50em) {
+          text-align: start;
+        }
+      }
+
+      & > figure {
+        padding: 0.5em;
+      }
+
+      & > dt {
+        margin: 1em 0;
+        font-weight: bold;
+      }
+
+      // & > dd {}
+    }
+  }
+}

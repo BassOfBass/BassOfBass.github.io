@@ -1,0 +1,423 @@
+/* Generic rules */
+// only rules applying to base tags and their pseudo-selectors/elements go there
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-family: sans-serif;
+  font-size: 100%; 
+  line-height: 1.15; // Correct the line height in all browsers.
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  transition-property: color, background-color, visibility, opacity;
+  transition-duration: var(--duration-global);
+}
+
+*:focus {
+  outline: var(--outline-default);
+  outline-offset: 2px;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  color: var(--colour0-primary);
+  background-color: var(--colour0-secondary);
+  padding: 0;
+  margin: 0;
+  gap: 1em;
+
+  & > * {
+    flex: 0 0;
+    padding: 1em;
+  }
+}
+
+main {
+  flex: 1 1;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 1em;
+  gap: 1em;
+
+  & > section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 1.5em;
+  }
+}
+
+// Style semantic tags for older browsers 
+article, 
+aside, 
+footer, 
+header, 
+nav {
+  display: block;
+}
+
+h1 { 
+  font-size: 2.2rem; // Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Firefox, and Safari.
+  text-transform: capitalize;
+  padding: 0.5em;
+  margin: 0;
+}
+
+h2 { 
+  font-size: 2rem;
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+h3 { 
+  font-size: 1.8rem;
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+h4 { 
+  font-size: 1.6rem;
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+h5 { 
+  font-size: 1.4rem;
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+h6 { 
+  font-size: 1.2rem;
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+/* Text content */
+
+// Set consistent line height across several text elements 
+p,
+li,
+dt,
+dd {
+  line-height: 1.5;
+}
+
+ul, 
+ol {
+  padding: 0 0 0 1em;
+  margin: 0;
+}
+
+ol {
+  list-style-position: outside;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  text-align: inherit;
+}
+
+li > ul > li,
+li > ol > li {
+  font-size: 0.9em;
+}
+
+details {
+  display: block; // Add the correct display in Edge, IE 10+, and Firefox.
+}
+
+summary {
+  display: list-item; // Add the correct display in all browsers.
+}
+
+/* END Text content */
+
+/* Inline text semantics */
+
+a {
+  text-decoration: none;
+  background-color: transparent; // remove the gray background on active links in IE 10.
+  outline: none;
+  transition: all var(--duration-global);
+  padding: 2px;
+
+  &:link {
+    color: var(--colour-anchor-primary);
+  }
+  
+  /* 
+    Only the following styles can be applied to visited links: 
+  
+    "color"
+    "background-color"
+    "border-color" (and its sub-properties)
+    "column-rule-color"
+    "outline-color"
+    The color parts of the "fill" and "stroke" attributes
+  
+    In addition, even for the above styles, you won't be able to change the transparency between unvisited and visited links, as you otherwise would be able to using rgba(), hsla(), or the transparent keyword.
+  */
+  &:visited {
+    color: var(--colour-anchor-tertiary);
+  }
+  
+  &:focus {
+    background-color: var(--colour-anchor-quarternary);
+    border-bottom: 0.125em solid;
+    cursor: pointer;
+    outline: none;
+  }
+  &:hover {
+    background-color: var(--colour-anchor-quarternary);
+    border-bottom: 0.125em solid;
+    cursor: pointer;
+  }
+  
+  &:active {
+    color: var(--colour-anchor-secondary);
+    background-color: var(--colour-anchor-primary);
+  }
+}
+
+b,
+strong {
+  font-weight: bolder; // Add the correct font weight in Chrome, Edge, and Safari.
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace, monospace; // Correct the inheritance and scaling of font size in all browsers.
+  font-size: 1em; // Correct the odd `em` font sizing in all browsers.
+}
+
+hr {
+  box-sizing: content-box; // Add the correct box sizing in Firefox.
+  height: 0; // Add the correct box sizing in Firefox.
+  overflow: visible; // Show the overflow in Edge and IE.
+}
+
+small {
+  font-size: 80%; // Add the correct font size in all browsers.
+}
+
+// Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+sub, 
+sup { 
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+u {
+  text-decoration: #f00 wavy underline;
+}
+
+/* END Inline text semantics */
+
+/* Image and multimedia */
+img {
+  max-width: 100%;
+  height: auto;
+  border-style: none; // Remove the border on images inside links in IE 10.
+}
+
+/* END Image and multimedia */
+
+/* Table content */
+
+table {
+  border-collapse: collapse;
+}
+
+th, 
+td {
+  padding: 0.25em;
+  text-align: start;
+}
+/* END Table content */
+
+/* Forms */
+
+button, 
+input, 
+optgroup,
+select, 
+textarea { 
+  box-sizing: border-box;
+  /* 
+    Interactive elements such as form input should provide an area large enough that it is easy to activate them. This helps a variety of people, including people with motor control issues and people using non-precise forms of input such as a stylus or fingers. A minimum interactive size of 44×44 CSS pixels is recommended. 
+  */
+  min-width: 44px;
+  min-height: 44px;
+  width: 100%;
+  font-family: inherit; // Change the font styles in all browsers.
+  font-size: 100%; // Change the font styles in all browsers.
+  line-height: 1.15; // Change the font styles in all browsers.
+  border-radius: 5px;
+  padding: 0.5em;
+  /* 
+    Large amounts of interactive content — including buttons — placed in close visual proximity to each other should have space separating them. This spacing is beneficial for people who are experiencing motor control issues, who may accidentally activate the wrong interactive content. 
+  */
+  margin: 1em 0; 
+}
+
+button,
+input {
+  overflow: visible; // Show the overflow in Edge.
+}
+
+button, 
+select {
+  text-transform: none; // Remove the inheritance of text transform in Firefox.
+}
+
+input,
+textarea {
+  color: hsl(0, 0%, 0%);
+  /* 
+    A property specific to text entry-related elements is the CSS caret-color property, which lets you set the color used to draw the text input caret: 
+  */
+  caret-color: inherit;
+  background-color: hsl(0, 0%, 100%);
+}
+
+form {
+  max-width: var(--width-mobile);
+  border: 1px solid var(--colour0-primary);
+  padding: 1em;
+  border-radius: 1em;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em; // Correct the padding in Firefox.
+}
+
+legend {
+  display: table; // Correct the text wrapping in Edge and IE.
+  box-sizing: border-box; // Correct the text wrapping in Edge and IE.
+  max-width: 100%; // Correct the text wrapping in Edge and IE.
+  color: inherit; // Correct the color inheritance from `fieldset` elements in IE.
+  white-space: normal; // Correct the text wrapping in Edge and IE.
+  border: 1px solid;
+  padding: 0.5em; // Remove the padding so developers are not caught out when they zero out `fieldset` elements in all browsers.
+}
+
+label {
+  color: var(--colour0-primary);
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  border: 2px solid; 
+  transition: var(--duration-global);
+
+  &:required {
+    border-color: var(--colour-submit-primary);
+  }
+
+  &:focus {
+    border-color: transparent;
+    box-shadow: 0 0 6px 6px var(--colour-submit-primary);
+    outline: none;
+  }
+}
+
+textarea {
+  overflow: auto; // Remove the default vertical scrollbar in IE 10+.
+}
+
+select {
+  cursor: pointer;
+}
+
+progress {
+  vertical-align: baseline; // Add the correct vertical alignment in Chrome, Firefox, and Opera.
+}
+
+button {
+  color: var(--colour0-primary);
+  background-color: var(--colour0-secondary);
+  border: var(--length-nano) solid;
+  box-shadow: 
+    inset 2px 2px 3px hsla(0, 0%, 100%, 0.6),
+    inset -2px -2px 3px hsla(0, 0%, 0%, 0.6);
+  cursor: pointer;
+  -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+  transition-duration: var(--duration-global);
+
+  // Remove the inner border and padding in Firefox.
+  &::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+
+  // Restore the focus styles unset by the previous rule.
+  &::-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+
+  // &:hover {}
+  &:focus {
+    border-color: var(--colour0-primary);
+    box-shadow: 0 0 5px 5px inherit;
+    outline: none;
+  }
+  &:active {
+    box-shadow: 
+      inset -2px -2px 3px hsla(0, 0%, 100%, 0.6),
+      inset 2px 2px 3px hsla(0, 0%, 0%, 0.6);
+  }
+}
+
+*::-webkit-file-upload-button {
+  -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+  font: inherit; // Change font properties to `inherit` in Safari.
+}
+
+button:disabled,
+textarea:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+/* END Forms */
+
+/* Web components */
+template {
+  display: none; // Add the correct display in IE 10+.
+}
+/* END Web components */
+
+/* END Generic rules */

@@ -1,0 +1,111 @@
+@import "variables";
+@import "base";
+@import "attributes";
+
+
+.gheader {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+
+  & .gheader-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    
+  }
+}
+
+.glogo {
+  font-weight: bold;
+  font-size: 2em;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--colour0-primary);
+  padding: 2rem;
+
+  > a {
+    text-decoration: none;
+
+    &:visited {
+      color: var(--colour0-primary);
+    }
+  }
+}
+
+.gswitch {
+  padding: 2rem;
+
+  &-button {
+    border-radius: 50%;
+    color: var(--colour0-primary);
+    background-color: var(--colour0-secondary);
+  }
+}
+
+section.todo-app {
+  border-radius: 15px;
+  background-color: var(--colour0-secondary);
+
+  .new-todo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1em;
+    padding: 1em 1em 2em;
+  }
+  
+  .todo-add {
+    border-radius: 50%;
+    color: green;
+    border-color: green;
+  }
+  
+  .todo-list {
+    list-style: none;
+    padding: 0
+  }
+  
+  .todo-item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+    border-bottom: 1px solid var(--colour0-quarternary);
+  }
+  
+  .todo-task {
+    flex: 1 1 auto;
+  
+    .completed & {
+      text-decoration: line-through;
+      color: var(--colour0-tertiary);
+    }
+  }
+  .todo-check {
+    border-radius: 50%;
+    border-color: var(--colour0-primary);
+  }
+  .todo-remove {
+    flex: 0 0 auto;
+    font-weight: bold;
+    color: hsl(0, 100%, 50%);
+    border-color: hsl(0, 100%, 50%);
+    border-radius: 50%;
+  }
+  
+  .todo-filters {
+    text-align: justify;
+  }
+  
+  .todo-filter {}
+}
+

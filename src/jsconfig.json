@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@wp/assets/*": ["./assets/*"],
+      "@wp/lib/*": ["./lib/*"],
+      "@wp/pages/*": ["./pages/*"],
+      "@wp/styles/*": ["./styles/*"],
+      "@wp/frontend-mentor/*": ["./frontend-mentor/*"],
+    },
+    "target": "es2015",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  }
+}

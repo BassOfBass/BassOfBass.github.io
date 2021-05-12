@@ -1,0 +1,53 @@
+@use "../styles/variables" as *;
+
+.site-section--frontend-mentor {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: var(--length-normal);
+}
+
+.fm-challenge {
+  flex: 0 1 $width-mobile;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  opacity: 0.8;
+  background-color: var(--colour0-quarternary);
+  border-radius: var(--length-normal);
+  border: var(--length-thin) solid var(--colour0-primary);
+  transition-property: transform, opacity;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+    transform: scale(1.025);
+  }
+
+  & > * {
+    padding: var(--length-short);
+    flex: 0 0;
+  }
+
+  &__header {
+    border-bottom: var(--length-nano) solid var(--colour0-tertiary);
+  }
+
+  &__body {
+    flex: 1 1;
+    padding: 0;
+    
+    & > * {
+      padding: var(--length-short);
+    }
+  }
+
+  &__image {
+    padding: 0;
+  }
+
+  &__footer {
+    border-top: var(--length-nano) solid var(--colour0-tertiary);
+  }
+}

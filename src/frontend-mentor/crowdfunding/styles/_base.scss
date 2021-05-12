@@ -1,0 +1,234 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 100%;
+  font-family: 'Commissioner', sans-serif;line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  transition-property: color, background-color, visibility, opacity, z-index, box-shadow, font-weight;
+  transition-duration: var(--duration-global);
+}
+
+*:focus {
+  outline: var(--outline-default);
+  outline-offset: 2px;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  color: var(--color3);
+  background-color: var(--color5);
+  padding: 0;
+  margin: 0;
+
+  & > * {
+    flex: 0 1 auto;
+    padding: 1em;
+
+    @media (min-width: 50em) {
+      padding: 2em;
+    }
+  }
+}
+
+main {
+  flex: 1 1 auto;
+  max-width: 720px;
+}
+
+section {
+  background-color: var(--color6);
+  border-radius: 10px;
+  padding: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+article {
+  margin: 1em 0;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  padding: 0.5em 0;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+p,
+li,
+dt,
+dd {
+  line-height: 1.5;
+}
+
+/* Forms */
+
+button, 
+input, 
+optgroup,
+select, 
+textarea { 
+  box-sizing: border-box;
+  /* 
+    Interactive elements such as form input should provide an area large enough that it is easy to activate them. This helps a variety of people, including people with motor control issues and people using non-precise forms of input such as a stylus or fingers. A minimum interactive size of 44×44 CSS pixels is recommended. 
+  */
+  min-width: 44px;
+  min-height: 44px;
+  width: 100%;
+  font-family: inherit; // Change the font styles in all browsers.
+  font-size: 100%; // Change the font styles in all browsers.
+  line-height: 1.15; // Change the font styles in all browsers.
+  border-radius: 5px;
+  padding: 0.5em;
+  /* 
+    Large amounts of interactive content — including buttons — placed in close visual proximity to each other should have space separating them. This spacing is beneficial for people who are experiencing motor control issues, who may accidentally activate the wrong interactive content. 
+  */
+  margin: 1em 0; 
+}
+
+button,
+input {
+  overflow: visible; // Show the overflow in Edge.
+}
+
+button, 
+select {
+  text-transform: none; // Remove the inheritance of text transform in Firefox.
+}
+
+input,
+textarea {
+  color: hsl(0, 0%, 0%);
+  /* 
+    A property specific to text entry-related elements is the CSS caret-color property, which lets you set the color used to draw the text input caret: 
+  */
+  caret-color: inherit;
+  background-color: hsl(0, 0%, 100%);
+}
+
+form {
+  max-width: var(--width-mobile);
+  border: 1px solid var(--colour0-primary);
+  padding: 1em;
+  border-radius: 1em;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em; // Correct the padding in Firefox.
+}
+
+legend {
+  display: table; // Correct the text wrapping in Edge and IE.
+  box-sizing: border-box; // Correct the text wrapping in Edge and IE.
+  max-width: 100%; // Correct the text wrapping in Edge and IE.
+  color: inherit; // Correct the color inheritance from `fieldset` elements in IE.
+  white-space: normal; // Correct the text wrapping in Edge and IE.
+  border: 1px solid;
+  padding: 0.5em; // Remove the padding so developers are not caught out when they zero out `fieldset` elements in all browsers.
+}
+
+label {
+  color: var(--colour0-primary);
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+input {
+  border: 2px solid; 
+  transition: var(--duration-global);
+
+  &:required {
+    border-color: var(--colour-submit-primary);
+  }
+
+  &:focus {
+    border-color: transparent;
+    box-shadow: 0 0 6px 6px var(--colour-submit-primary);
+    outline: none;
+  }
+}
+
+textarea {
+  overflow: auto; // Remove the default vertical scrollbar in IE 10+.
+}
+
+select {
+  cursor: pointer;
+}
+
+progress {
+  vertical-align: baseline; // Add the correct vertical alignment in Chrome, Firefox, and Opera.
+}
+
+button {
+  color: var(--colour0-primary);
+  background-color: var(--colour0-secondary);
+  border: 1px solid;
+  box-shadow: 
+    inset 2px 2px 3px hsla(0, 0%, 100%, 0.6),
+    inset -2px -2px 3px hsla(0, 0%, 0%, 0.6);
+  cursor: pointer;
+  -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+  transition-duration: var(--duration-global);
+  
+  // Remove the inner border and padding in Firefox.
+  &::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+
+  // Restore the focus styles unset by the previous rule.
+  &::-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+
+  // &:hover {}
+  &:focus {
+    border-color: var(--colour0-primary);
+    box-shadow: 0 0 5px 5px inherit;
+    outline: none;
+  }
+  &:active {
+    box-shadow: 
+      inset -2px -2px 3px hsla(0, 0%, 100%, 0.6),
+      inset 2px 2px 3px hsla(0, 0%, 0%, 0.6);
+  }
+}
+
+*::-webkit-file-upload-button {
+  -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+  font: inherit; // Change font properties to `inherit` in Safari.
+}
+
+button:disabled,
+textarea:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+/* END Forms */
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}

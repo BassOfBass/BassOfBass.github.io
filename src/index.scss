@@ -1,0 +1,12 @@
+/*
+  `Normalize.css` is already merged into this file, almost all `//` comments on the side are from normalize
+  ! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css 
+*/
+@use "styles/sass_mixins";
+@use "styles/functions";
+@use "styles/variables";
+@use "styles/base";
+@use "styles/attributes";
+@use "styles/animations";
+@use "styles/classes";
+@use "frontend-mentor/frontend-mentor.scss";

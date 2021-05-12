@@ -1,0 +1,35 @@
+$width-mobile: 375px;
+$width-desktop: 1440px;
+
+:root {
+  --color1: hsl(176, 50%, 47%); // Moderate cyan
+  --color2: hsl(176, 72%, 28%); // Dark cyan
+  --color3: hsl(0, 0%, 15%); // Black
+  --color4: hsl(0, 0%, 48%); // Dark gray
+  --color5: hsl(0, 0%, 85%);
+  --color6: hsl(0, 0%, 95%);
+  --color7: hsl(0, 0%, 100%);
+
+  --color-negative-primary: hsl(0, 100%, 50%);
+  --colour-submit-primary: hsl(176, 50%, 50%);
+  --colour-submit-secondary: hsl(176, 30%, 80%);
+
+  // durations for transition and transform properties
+  --duration-none: 0;
+  --duration-fast: 0.25s;
+  --duration-norm: 0.5s;
+  --duration-slow: 1s;
+  --duration-global: var(--duration-norm);
+
+  --outline-default-width: 3px;
+  --outline-default-colour: var(--color2);
+  --outline-default-style: dashed;
+  --outline-default: 
+    var(--outline-default-width) 
+    var(--outline-default-colour) 
+    var(--outline-default-style);
+
+  @media (prefers-reduced-motion) {
+    --duration-global: var(--duration-none);
+  }
+}

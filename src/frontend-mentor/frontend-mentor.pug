@@ -1,0 +1,24 @@
+extends ../layout.pug
+
+block content
+  h1 Frontend Mentor challenges
+  section.site-section.site-section--frontend-mentor
+    for challenge of require("./challenges.json")
+      article.fm-challenge
+        header.fm-challenge__header
+          h2.fm-challenge__heading
+            a.fm-challenge__heading-link(href= challenge.url) #{challenge.title}
+        section.fm-challenge__body
+          figure.fm-challenge__image
+            picture
+              img(
+                src= challenge.image, 
+                alt= challenge.image
+              )
+          p.fm-challenge__description #{challenge.description}
+        footer.fm-challenge__footer
+          ul.fm-challenge__tag-list
+            for tag of challenge.tags.split(" ")
+              li.fm-challenge__tag-item #{tag}
+          p
+            a(href=challenge.originalURL) Challenge link

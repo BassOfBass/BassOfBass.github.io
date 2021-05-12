@@ -1,0 +1,45 @@
+include mixins.pug
+
+doctype html
+html(lang="en")
+  head
+    block head
+      meta(charset="UTF-8")
+      meta(http-equiv="X-UA-Compatible", content="IE=edge")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+      block title
+        title BassOfBass's Personal site
+  body
+    svg.svg-container(
+      style="display: none !important;"
+    )
+      symbol#svg-icon--html.svg-html(
+        viewBox="-30 0 512 512" 
+        xmlns="http://www.w3.org/2000/svg"
+      )
+        path.svg-html__outline(d="m31.859375 448.058594 194.253906 63.941406 194.253907-63.941406 31.859374-448.058594h-452.226562zm339.757813-373.058594-4.277344 60h-222.246094l5.417969 77h211.480469l-12.878907 180.601562-123 41.101563-123.003906-41.101563-4.203125-60.601562h60l1.214844 16.492188 65.992187 21.902343 66.003907-21.898437 5.390624-76.496094h-203.097656l-13.800781-197zm0 0")
+    header.global-header
+      block globalHeader
+        div.global-header__logo
+          a.global-header__logo-link.image-link(href="/")
+            +svgIcon("html", "global-header__logo-icon")
+              
+        +globalNav()
+
+        div
+
+    main#main-content.global-content
+      block content
+
+    footer.global-footer
+      block globalFooter
+        address.global-footer__address
+          div
+            a(href="https://github.com/BassOfBass") My github
+          div
+            a(href="https://github.com/BassOfBass/landing-page") Source files
+        div.
+          Icons made by #[a(href="https://www.freepik.com" title="Freepik") Freepik] from #[a(href="https://www.flaticon.com/" title="Flaticon") www.flaticon.com]
+
+    +errorList(errors)

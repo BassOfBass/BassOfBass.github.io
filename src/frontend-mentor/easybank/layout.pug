@@ -1,0 +1,140 @@
+include mixins.pug
+
+doctype html
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  meta(
+    http-equiv="X-UA-Compatible", content="IE=edge"
+  )
+  meta(
+    name="viewport", 
+    content="width=device-width, initial-scale=1.0"
+  )
+  link(
+    rel="preconnect", 
+    href="https://fonts.gstatic.com"
+  )
+  link(
+    rel="stylesheet", 
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+  )
+  link(
+    rel="icon", 
+    type="image/image/png",
+    href= require("@wp/assets/favicon-32x32.png"), 
+  )
+
+  title Easybank landing page
+
+body
+  header.gheader
+    div
+      a(href="/frontend-mentor/easybank").glogo
+        picture
+          img(
+            src=require("./assets/logo.svg"), 
+            alt="bank logo", 
+            width="139", 
+            height="20"
+          )
+    +globalNav()
+
+    div.invite
+      button(type="button") Request Invite
+
+    label(for="burger-switch", tabindex="1").hidden-switch.gburger
+      +burgerButton("burger-burger")
+
+    input#burger-switch.hidden-switcher(type="checkbox", tabindex="-1", hidden)
+    div.gwrapper
+      div.gnav
+        nav
+          div
+            a(href="frontend-mentor/easybank/about") About
+          div
+            a(href="frontend-mentor/easybank/contact") Contact
+          div
+            a(href="frontend-mentor/easybank/blog") Blog
+          div
+            a(href="frontend-mentor/easybank/careers") Careers
+
+  main
+    block content
+
+  aside.garticles
+    h2 Latest Articles
+    article
+      figure
+        picture
+          img(src= require("./assets/image-currency.jpg"), alt="")
+        figcaption By Claire Robinson
+      h3 #[a(href="") Receive money in any currency with no fees]
+      p The world is getting smaller and we’re becoming more mobile. So why should you be forced to only receive money in a single …
+    article
+      figure
+        picture
+          img(src= require("./assets/image-restaurant.jpg"), alt="")
+        figcaption By Wilson Hutton
+      h3 #[a(href="") Treat yourself without worrying about money]
+      p Our simple budgeting feature allows you to separate out your spending and set realistic limits each month. That means you …
+    article
+      figure
+        picture
+          img(src= require("./assets/image-plane.jpg"), alt="")
+        figcaption By Wilson Hutton
+      h3 #[a(href="") Take your Easybank card wherever you go]
+      p We want you to enjoy your travels. This is why we don’t charge any fees on purchases while you’re abroad. We’ll even show you …
+    article
+      figure
+        picture
+          img(src=require("./assets/image-confetti.jpg"), alt="")
+        figcaption By Claire Robinson
+      h3 #[a(href="") Our invite-only Beta accounts are now live!]
+      p After a lot of hard work by the whole team, we’re excited to launch our closed beta. It’s easy to request an invite through the site ...
+
+
+  footer.gfooter
+    div.glogo
+      a(href="/")
+        +sitelogo
+
+    address
+      ul.glinks
+        li
+          a(href="#")
+            picture
+              img(src=require("./assets/icon-facebook.svg"), alt="")
+            |
+            | Facebook
+        li
+          a(href="#")
+            picture
+              img(src=require("./assets/icon-youtube.svg"), alt="")
+            |
+            | Youtube
+        li
+          a(href="#")
+            picture
+              img(src=require("./assets/icon-twitter.svg"), alt="")
+            |
+            | Twitter
+        li
+          a(href="#")
+            picture
+              img(src=require("./assets/icon-pinterest.svg"), alt="")
+            |
+            | Pinterest
+        li
+          a(href="#")
+            picture
+              img(src=require("./assets/icon-instagram.svg"), alt="")
+            |
+            | Instagram
+
+    +globalNav(true)
+
+    div.invite
+      button(type="button") Request Invite
+
+    p.gcopyright © Easybank. All Rights Reserved.

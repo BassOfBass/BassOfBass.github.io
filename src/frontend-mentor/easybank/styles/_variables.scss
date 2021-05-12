@@ -1,0 +1,26 @@
+// sass variables
+$width-mobile: 375px;
+$width-tablet: 480px;
+$width-desktop: 1440px;
+$media-query-mobile: "";
+$media-query-desktop: "";
+
+:root {
+  --colour0-primary: hsl(233, 26%, 24%);
+  --colour0-secondary: hsl(136, 65%, 51%);
+  --colour0-tertiary: hsl(183.2, 63.2%, 46.9%);
+
+  --colour-neutral-primary: hsl(233, 8%, 62%);
+  --colour-neutral-secondary: hsl(220, 16%, 90%);
+  --colour-neutral-tertiary: hsl(0, 0%, 100%);
+
+  --color-negative-primary: hsl(0, 80%, 55%);
+
+  --duration-none: 0;
+  --duration-normal: 0.5s;
+  --duration-global: var(--duration-normal);
+
+  @media (prefers-reduced-motion) {
+    --duration-global: var(--duration-none: 0);
+  }
+}

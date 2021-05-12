@@ -1,0 +1,32 @@
+.invite {
+  text-align: center;
+  margin: 1em;
+
+  & > button {
+    color: var(--colour-neutral-secondary);
+    background-image: linear-gradient(
+      0.25turn,
+      var(--colour0-secondary),
+      var(--colour0-tertiary)
+    );
+    border-radius: 25px;
+    border-color: transparent;
+    padding: 0 1em;
+    margin: 0;
+
+    &:hover {
+      opacity: 0.80;
+    }
+
+    &:active {
+      color: var(--colour0-primary);
+      opacity: 1;
+      background-image: linear-gradient(
+        0.25turn,
+        var(--colour0-tertiary),
+        var(--colour0-secondary)
+      );
+      
+    }
+  }
+}

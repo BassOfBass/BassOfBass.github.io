@@ -1,0 +1,39 @@
+.image-link {
+  padding: 0;
+  border: none;
+
+  &:link {}
+  &:visited {}
+  &:focus {}
+  &:hover {
+    background-color: transparent;
+    border: none;
+  }
+  &:active {
+    background-color: transparent;
+  }
+}
+
+/* SVG icons */
+.svg-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.svg-container {
+  display: none !important;
+}
+
+.svg-html {
+  &__outline {
+    fill: var(--colour0-primary);
+  }
+
+  &:active &__outline {
+    fill: var(--colour0-secondary);
+    background-color: var(--colour0-primary);
+  }
+}
+
+/* END SVG icons */
+

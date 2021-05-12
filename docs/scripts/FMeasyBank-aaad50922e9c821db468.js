@@ -1,0 +1,2 @@
+(self.webpackChunklanding_page=self.webpackChunklanding_page||[]).push([[668],{281:()=>{"use strict";var e,r;e=document.querySelector(".gheader").querySelector(".gburger"),r=e.querySelector(".burger-icon"),document.querySelector("#".concat(e.htmlFor)).addEventListener("input",(function(e){r.classList.toggle("close")}))}},e=>{"use strict";e(e.s=281)}]);
+//# sourceMappingURL=FMeasyBank-aaad50922e9c821db468.js.map

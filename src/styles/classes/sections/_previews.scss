@@ -1,0 +1,152 @@
+section.previews {
+  // https://codeburst.io/how-to-pure-css-pie-charts-w-css-variables-38287aea161e
+  & .pie-chart {
+    --size: 200;
+    --over50: 0;
+    --offset: 0;
+
+    position: relative;
+    width: calc(var(--size) * 1px);
+    height: calc(var(--size) * 1px);
+    background-color: transparent;
+    border-radius: 100%;
+    overflow: hidden;
+
+    & .pie-segment {
+      --a: calc(var(--over50) * -100%);
+      --b: calc((1 + var(--over50)) * 100%);
+      --degrees: calc((var(--offset) / 100) * 360);
+
+      position: absolute;
+      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+      transform: 
+        translate(0, -50%) 
+        rotate(90deg) 
+        rotate(calc(var(--degrees) * 1deg));
+      clip-path: polygon(
+        var(--a) var(--a), 
+        var(--b) var(--a), 
+        var(--b) var(--b), 
+        var(--a) var(--b)
+      );
+      transform-origin: 50% 100%;
+
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg, hsl(6, 78%, 57%));
+      }
+
+      &::before {
+        --degrees: calc((var(--value, 45) / 100) * 360);
+
+        padding: 0.25em;
+        transform: 
+          translate(0, 100%) 
+          rotate(calc(var(--degrees) * 1deg));
+        transform-origin: 50% 0;
+      }
+
+      &::after {
+        opacity: var(--over50);
+      }
+
+      &:hover {
+        opacity: 1;
+
+        & .pie-label {
+          opacity: 1;
+        }
+      }
+
+      & .pie-label {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 2;
+        width: 25%;
+        opacity: 0;
+        text-align: center;
+      }
+    }
+  }
+
+  & .bubbles {
+    flex: 1 1 100%;
+    color: var(--colour0-secondary);
+    background-color: var(--colour0-primary);
+
+    & > section {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 10em;
+    }
+  }
+
+  & .bubble {
+    --size: 50;
+    --hue: 195;
+    --bubble-outline: hsl(var(--hue), 100%, 50%);
+    --bubble-spot: hsl(var(--hue), 100%, 75%);
+    --bubble-shade: hsl(var(--hue), 100%, 70%);
+
+    position: absolute;
+    top: 100%;
+    left: calc(var(--x) * 1%);
+    width: calc(var(--size) * 1px);
+    height: calc(var(--size) * 1px);
+    background-image: 
+      radial-gradient(
+        100% 115% at 25% 25%, 
+        hsl(0, 0%, 100%), 
+        transparent 33%
+      ),
+      radial-gradient(
+        15% 15% at 75% 75%, 
+        var(--bubble-spot), 
+        transparent
+      ),
+      radial-gradient(
+        100% 100% at 50% 25%, 
+        transparent, 
+        var(--bubble-shade) 98%
+      );
+    border-radius: 50%;
+    border: 1px solid var(--bubble-outline);
+    transform: translate(-50%, 0);
+    animation-name: float;
+    animation-duration: calc(var(--speed) * 1s);
+    animation-delay: calc(var(--delay) * -1s);
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes float {
+    from {
+      opacity: 1;
+      transform: translate(0, 0) scale(0);
+    }
+    to {
+      opacity: 0;
+      transform: 
+        translate(-50%, calc(var(--distance) * -1%)) 
+        scale(var(--scale));
+    }
+  }
+
+  & .form-examples {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1em;
+  }
+}

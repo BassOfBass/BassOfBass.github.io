@@ -1,1 +1,0 @@
-(self.webpackChunklanding_page=self.webpackChunklanding_page||[]).push([[43],{861:()=>{}},0,[[861,666]]]);

@@ -1,0 +1,106 @@
+extends ../../layout.pug
+
+block content
+  h1 Style previews
+  nav
+    h2 Content
+    ul
+      li 
+        a(href="#previews-article--pies") Piecharts
+      li 
+        a(href="#previews-article--bubbles") Bubbles
+      li 
+        a(href="#previews-article--buttons") Buttons
+      li 
+        a(href="#previews-article--forms") Forms
+      li 
+        a(href="/previews/editable-textarea") Editable Textarea
+
+  section.site-section.site-section--previews
+    article#previews-article--pies.previews-article
+      header
+        h2 Pie
+      section
+        //- TODO: fix hover not working properly on values over 50
+        div.pie-chart(style="--size: 300")
+          div.pie-segment(
+            style="--offset: 20; --value: 60; --bg: hsl(337, 91%, 45%); --over50: 1"
+          )
+            label.pie-label CSS: 60%
+          div.pie-segment(
+            style="--offset: 80; --value: 5; --bg: hsl(201, 87%, 54%);"
+          )
+            label.pie-label HTML: 5%
+          div.pie-segment(
+            style="--offset: 85; --value: 15; --bg: hsl(145, 63%, 49%);"
+          )
+          div.pie-segment(
+            style="--offset: 100; --value: 20; --bg: hsl(85, 91%, 45%);"
+          )
+
+    article#previews-article--bubbles.previews-article 
+      header
+        h2 Bubbles
+      //- section
+      //-   -
+      //-     const bubbleCount = 50;
+      //-     let b = 0;
+
+      //-     function randomInRange(min, max) {
+      //-       return (Math.floor(Math.random() * (max - min + 1)) + min)
+      //-     };
+
+      //-   while b < bubbleCount
+      //-     div.bubble(
+      //-       style=`
+      //-         --x: ${randomInRange(0, 100)};
+      //-         --size: ${randomInRange(10, 50)};
+      //-         --hue: ${randomInRange(0, 360)};
+      //-         --distance: ${randomInRange(25, 150)};
+      //-         --speed: ${randomInRange(2, 20)};
+      //-         --delay: ${randomInRange(1, 10)};
+      //-         --scale: ${randomInRange(100, 150) / 100};
+      //-       `
+      //-     )
+      //-     - b++
+
+    article#previews-article--buttons.previews-article
+      header
+        h2 Buttons
+      section
+        div.util.buttons
+          button base button
+          button(type="button") button button
+        div.util.buttons
+          button(type="submit") submit button
+          button(type="reset") reset button
+        div.util.buttons
+          button.util.positive(type="button") accept button
+          button.util.negative(type="button") decline button
+        div.util.buttons
+          input(type="button", value="button input")
+          input(type="submit", value="submit input")
+          input(type="reset", value="reset input")
+          input(type="image", src="", alt="image input")
+      
+    article#previews-article--forms.previews-article
+      header
+        h2 Forms
+      section 
+        form.form-examples
+          fieldset 
+            legend Basic inputs
+            div
+              label(for="preview-base") Base:
+              input#preview-base
+            div
+              label(for="preview-text") Text:
+              input#preview-text(type="text", name="text")
+            div
+              label(for="preview-password") Password:
+              input#preview-password(type="password", name="password")
+          fieldset
+            legend Advanced inputs
+            div.util.file
+              input#file-preview(type="file", name="file")
+              label(for="file-preview") File
