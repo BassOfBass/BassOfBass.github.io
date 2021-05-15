@@ -1,11 +1,8 @@
 const path = require("path");
-const { nanoid } = require("nanoid");
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common.js');
 const { buildPath, hostName } = require("./configs/vars.js");
-
-global.nanoid = nanoid;
 
 /** 
  * @type {import("webpack").Configuration}
@@ -27,9 +24,6 @@ const config = {
         use: [
           { 
             loader: 'simple-pug-loader',
-            options: {
-              globals: ["nanoid"]
-            }
           }
         ]
       },

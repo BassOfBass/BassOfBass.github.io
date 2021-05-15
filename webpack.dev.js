@@ -21,7 +21,7 @@ const config = {
   devServer: devServerConfig,
   entry: {
     FMtodoApp: "./src/frontend-mentor/todo-app/todo-app.js"
-  }
+  },
   plugins: [
     // @ts-expect-error
     new MiniCssExtractPlugin({
