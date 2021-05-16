@@ -1,15 +1,13 @@
 import "./todo-app.scss";
 import "./assets";
-import { createTodoListItem, TodoTask } from "./components/todo-list";
-import { ComponentContainer } from "./components/component-container";
+import { initComponentFactory, initTodoList } from "./components/_index";
 
 const globalTheme = document.querySelector(".gtheme");
 const header = document.querySelector(".gheader");
 const footer = document.querySelector(".gfooter");
 const main = document.querySelector("main");
 
-export const { getComponent } = ComponentContainer(footer);
-
+initComponentFactory(footer);
 initHeader(header, globalTheme);
 initMain(main);
 
@@ -34,43 +32,5 @@ function initHeader(header, theme) {
  * @param {HTMLElement} main 
  */
 function initMain(main) {
-  /**
-   * @type HTMLFormElement
-   */
-  const newTodoForm = main.querySelector(".new-todo");
-  /**
-   * @type {HTMLUListElement}
-   */
-  const todoList = main.querySelector(".todo-list");
-
-  newTodoForm.addEventListener("submit", addNewTodo);
-  todoList.addEventListener("click", removeTodo);
-
-  /**
-   * @param {Event} event 
-   */
-  function addNewTodo(event) {
-    event.preventDefault();
-
-    /**
-     * @type HTMLFormElement
-     */
-    const form = event.target;
-    /**
-     * @type HTMLInputElement
-     */
-    const input = form.elements["todo-task"];
-    const todoTask = new TodoTask(input.value);
-    const listItem = createTodoListItem(todoTask);
-
-    todoList.appendChild(listItem);
-    input.value = "";
-  }
-
-  /**
-   * @param {MouseEvent} event 
-   */
-  function removeTodo(event) {
-    event.stopPropagation();
-  }
+  initTodoList(main);
 }

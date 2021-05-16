@@ -1,10 +1,14 @@
+import "@wp/assets/favicon-32x32.png";
 import "./index.scss";
 import { sections, SiteSection } from "@wp/pages/_index";
+import { ComponentFactory } from "./components/_index";
 
 const header = document.querySelector(".gheader");
 const main = document.querySelector("main");
-const footer = document.querySelector(".gfooter");
+const globalFooter = document.querySelector(".global-footer");
 const activeSections = filterSections(main, sections);
+
+ComponentFactory(globalFooter);
 
 /**
  * @param {HTMLElement} main

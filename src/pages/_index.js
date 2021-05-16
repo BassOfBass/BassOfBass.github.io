@@ -1,6 +1,8 @@
 import { nanoidHTML } from "@wp/lib/_index";
 import { initSectionPreviews } from "@wp/pages/previews/previews";
 import { initTextAreaPreview } from "@wp/pages/previews/editable-textarea";
+import { initTablePreview } from "@wp/pages/previews/table-stuff/table-stuff";
+
 export class SiteSection {
   /**
    * @param {string} name 
@@ -19,5 +21,6 @@ export class SiteSection {
  */
 export const sections = [
   new SiteSection("previews", initSectionPreviews),
-  new SiteSection("textarea", initTextAreaPreview)
+  new SiteSection("textarea", initTextAreaPreview),
+  new SiteSection("tables", initTablePreview)
 ]

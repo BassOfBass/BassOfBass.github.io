@@ -13,14 +13,15 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  opacity: 0.8;
+  opacity: 0.85;
   background-color: var(--colour0-quarternary);
   border-radius: var(--length-normal);
   border: var(--length-thin) solid var(--colour0-primary);
   transition-property: transform, opacity;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:focus-within {
     opacity: 1;
     transform: scale(1.025);
   }

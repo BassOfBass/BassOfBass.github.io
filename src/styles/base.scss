@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 /* Generic rules */
 // only rules applying to base tags and their pseudo-selectors/elements go there
 
@@ -37,7 +39,6 @@ body {
   background-color: var(--colour0-secondary);
   padding: 0;
   margin: 0;
-  gap: 1em;
 
   & > * {
     flex: 0 0;
@@ -51,7 +52,6 @@ main {
   flex-flow: column nowrap;
   align-items: center;
   padding: 1em;
-  gap: 1em;
 
   & > section {
     display: flex;
@@ -155,14 +155,20 @@ summary {
 /* Inline text semantics */
 
 a {
+  --local-colour-primary: var(--colour-anchor-primary);
+  --local-colour-secondary: var(--colour-anchor-secondary);
+  --local-colour-tertiary: var(--colour-anchor-tertiary);
+  --local-colour-quarternary: var(--colour-anchor-quarternary);
+
   text-decoration: none;
   background-color: transparent; // remove the gray background on active links in IE 10.
+  border-bottom: $length-thin solid transparent;
+  padding: 2px;
   outline: none;
   transition: all var(--duration-global);
-  padding: 2px;
 
   &:link {
-    color: var(--colour-anchor-primary);
+    color: var(--local-colour-primary);
   }
   
   /* 
@@ -178,24 +184,25 @@ a {
     In addition, even for the above styles, you won't be able to change the transparency between unvisited and visited links, as you otherwise would be able to using rgba(), hsla(), or the transparent keyword.
   */
   &:visited {
-    color: var(--colour-anchor-tertiary);
+    color: var(--local-colour-tertiary);
   }
   
   &:focus {
-    background-color: var(--colour-anchor-quarternary);
-    border-bottom: 0.125em solid;
+    background-color: var(--local-colour-quarternary);
+    border-color: inherit;
     cursor: pointer;
     outline: none;
   }
+
   &:hover {
-    background-color: var(--colour-anchor-quarternary);
-    border-bottom: 0.125em solid;
+    background-color: var(--local-colour-quarternary);
+    border-color: inherit;
     cursor: pointer;
   }
   
   &:active {
-    color: var(--colour-anchor-secondary);
-    background-color: var(--colour-anchor-primary);
+    color: var(--local-colour-secondary);
+    background-color: var(--local-colour-primary);
   }
 }
 
@@ -340,7 +347,7 @@ label {
 }
 
 input {
-  border: 2px solid; 
+  border: $length-thin solid; 
   transition: var(--duration-global);
 
   &:required {

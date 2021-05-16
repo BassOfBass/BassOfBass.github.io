@@ -1,20 +1,37 @@
 .svg-icon {
-  width: 100%;
-  height: 100%;
+  // allow event delegation to work
+  pointer-events: none;
+  
+  &__svg {
+    width: 100%;
+    height: 100%;
+    
+  }
 }
 
 .svg-icon-check {
-  stroke: var(--colour0-primary);
+
+  &__path {
+    stroke: var(--colour0-primary);
+  }
 }
 
 .svg-icon-cross {
-  fill: var(--colour0-primary);
+
+  &__path {
+    fill: var(--colour0-primary);
+  }
 }
 
 .svg-icon-moon {
-  fill: var(--colour0-primary);
+
+  &__path {
+    fill: var(--colour0-primary);
+  }
 }
 
 .svg-icon-sun {
-  fill: var(--colour0-primary);
+  &__path {
+    fill: var(--colour0-primary);
+  }
 }

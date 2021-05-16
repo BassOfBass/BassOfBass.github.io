@@ -4,17 +4,19 @@ block content
   h1 Style previews
   nav
     h2 Content
+    -
+      const navItems = [
+        { link: "#previews-article--pies", title: "Piecharts" },
+        { link: "#previews-article--bubbles", title: "Bubbles" },
+        { link: "#previews-article--buttons", title: "Buttons" },
+        { link: "#previews-article--forms", title: "Forms" },
+        { link: "/previews/editable-textarea", title: "Editable Textarea" },
+        { link: "/previews/table-stuff", title: "Tables" },
+      ];
     ul
-      li 
-        a(href="#previews-article--pies") Piecharts
-      li 
-        a(href="#previews-article--bubbles") Bubbles
-      li 
-        a(href="#previews-article--buttons") Buttons
-      li 
-        a(href="#previews-article--forms") Forms
-      li 
-        a(href="/previews/editable-textarea") Editable Textarea
+      for item of navItems
+        li
+          a(href= item.link) #{item.title}
 
   section.site-section.site-section--previews
     article#previews-article--pies.previews-article

@@ -1,9 +1,7 @@
-@use "styles/variables";
+@use "styles/variables" as *;
 @use "styles/base";
 @use "styles/attributes";
-@use "components/component-container.scss";
-@use "components/svg-icons.scss";
-@use "components/todo-list.scss";
+@use "components/index";
 
 .gheader {
   display: flex;
@@ -40,18 +38,25 @@
 }
 
 .gswitch {
+  flex: 0 1 3em;
   padding: 2rem;
 
   &-button {
+    display: flex;
+    max-height: 3em;
     border-radius: 50%;
     color: var(--colour0-primary);
     background-color: var(--colour0-secondary);
   }
 }
 
-section.todo-app {
+.todo-app {
   border-radius: 15px;
   background-color: var(--colour0-secondary);
+
+  .todo-app__panel {
+    max-width: $width-touch;
+  }
 
   .new-todo {
     display: flex;
@@ -63,9 +68,31 @@ section.todo-app {
   }
   
   .todo-add {
+    font-size: 3em;
+    font-weight: normal;
+    line-height: 0;
     border-radius: 50%;
     color: green;
+    background-color: var(--colour0-secondary);
     border-color: green;
+    padding: 0;
+  }
+
+  .todo-actions {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+
+    &__filters {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1em;
+    }
   }
 
   .todo-filters {
@@ -73,5 +100,9 @@ section.todo-app {
   }
   
   .todo-filter {}
+
+  .todo__notice {
+    padding: 0.5em 1em;
+  }
 }
 

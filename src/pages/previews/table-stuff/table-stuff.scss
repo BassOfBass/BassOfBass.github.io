@@ -1,0 +1,96 @@
+@use "../../../styles/variables" as *;
+
+.table {
+  --local-colour-primary: var(--colour0-primary);
+  --local-colour-secondary: var(--colour0-secondary);
+  --local-colour-tertiary: var(--colour0-tertiary);
+  --local-colour-quarternary: var(--colour0-quarternary);
+
+  border-collapse: separate;
+  border-spacing: 0;
+  border: $length-thin solid var(--local-colour-primary);
+
+  &__caption {}
+  &__colgroup {}
+  &__column {}
+
+  &__head {
+    text-transform: capitalize;
+    color: var(--local-colour-secondary);
+    background-color: var(--local-colour-primary);
+  }
+
+  &__heading {
+    
+  }
+
+  &__body {}
+
+  &__footer {}
+
+  &__row {
+
+    &:nth-child(2n) {
+      background-color: var(--local-colour-quarternary);
+    }
+
+    &:hover {
+      background-color: var(--colour7-secondary);
+    }
+  }
+
+  &__cell {
+    border: $length-nano solid transparent;
+    transition-duration: 0ms;
+
+    &:hover {
+      border-color: var(--colour8-primary);
+      cursor: cell;
+    }
+
+    &--selected {
+      background-color: var(--colour2-secondary);
+    }
+
+    &--editing {
+      position: relative;
+
+      & .cell-editor {
+        position: absolute;
+        top: 115%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        display: block;
+      }
+    }
+  }
+}
+
+.table-footer {
+  border: $length-nano solid var(--colour-submit-primary);
+
+  &__row {}
+
+  &__cell {}
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &__input {
+    margin: 0
+  }
+}
+
+.cell-editor {
+  display: none;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+
+  &__input {
+    margin: 0;
+  }
+}

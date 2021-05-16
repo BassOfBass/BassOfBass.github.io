@@ -1,32 +1,20 @@
-/* sass vatiables */
-// mostly for media queries 
-// because css variables don't work in conditions
-
-// widths
-$width-feature: 240px;
-$width-mobile: 360px;
-$width-tablet: 720px;
-$width-laptop: 1280px;
-$width-desktop: 1440px;
-
-// queries
-// TODO write them
-
-// css variables
 :root {
   // colors
-  --colour0-primary: hsl(0, 0%, 20%);
-  --colour0-secondary: hsl(0, 0%, 80%);
-  --colour0-tertiary: hsla(0, 0%, 0%, 0.6);
-  --colour0-quarternary: hsla(0, 0%, 100%, 0.6);
+  --colour0-primary: hsl(0, 0%, 10%);
+  --colour0-secondary: hsl(0, 0%, 90%);
+  --colour0-tertiary: hsla(0, 0%, 20%);
+  --colour0-quarternary: hsla(0, 0%, 80%);
 
   --colour1-primary: hsl(0, 100%, 50%);
-  --colour2-primary: hsl(45, 100%, 50%);
+  --colour2-primary: hsl(45, 75%, 50%);
+  --colour2-secondary: hsl(60, 100%, 50%);
   --colour3-primary: hsl(90, 100%, 50%);
   --colour4-primary: hsl(135, 100%, 50%);
+  --colour4-secondary: hsl(135, 100%, 75%);
   --colour5-primary: hsl(180, 100%, 50%);
   --colour6-primary: hsl(225, 100%, 50%);
   --colour7-primary: hsl(270, 100%, 50%);
+  --colour7-secondary: hsl(270, 75%, 60%);
   --colour8-primary: hsl(315, 100%, 50%);
   
   /* buttons */
@@ -62,35 +50,8 @@ $width-desktop: 1440px;
   --colour-anchor-local-tertiary: hsla(270, 80%, 50%, 0.9);
   --colour-anchor-local-quaternary: hsla(270, 80%, 80%, 0.9);
   // internal links
-  --colour-anchor-internal-primary: hsl(130, 90%, 40%);
-  --colour-anchor-internal-secondary: hsl(110, 100%, 80%);
-  --colour-anchor-internal-tertiary: hsla(130, 90%, 40%, 0.9);
-  --colour-anchor-internal-quarternary: hsla(110, 80%, 80%, 0.95);
-
-  // lengths
-  --length-nano: 0.0625em;
-  --length-thin: 0.125em;
-  --length-tiny: 0.25em;
-  --length-short: 0.5em;
-  --length-normal: 1em;
-  --length-long: 1.5em;
-
-  // durations for transition and transform properties
-  --duration-none: 0;
-  --duration-fast: 0.25s;
-  --duration-norm: 0.5s;
-  --duration-slow: 1s;
-  --duration-global: var(--duration-fast);
-
-  --outline-default-width: 3px;
-  --outline-default-colour: var(--colour0-primary);
-  --outline-default-style: dashed;
-  --outline-default: 
-    var(--outline-default-width) 
-    var(--outline-default-colour) 
-    var(--outline-default-style);
-
-  @media (prefers-reduced-motion) {
-    --duration-global: var(--duration-none);
-  }
+  --colour-anchor-internal-primary: hsl(240, 100%, 50%);
+  --colour-anchor-internal-secondary: hsl(240, 100%, 80%);
+  --colour-anchor-internal-tertiary: hsla(240, 100%, 50%, 0.9);
+  --colour-anchor-internal-quarternary: hsla(240, 80%, 80%, 0.9);
 }

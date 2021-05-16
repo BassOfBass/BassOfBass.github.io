@@ -1,0 +1,52 @@
+/* sass vatiables */
+// mostly for media queries 
+// because css variables don't work in conditions
+
+// widths
+$width-feature: 240px;
+$width-mobile: 360px;
+$width-tablet: 720px;
+$width-laptop: 1280px;
+$width-desktop: 1440px;
+
+// lengths
+$length-nano: 0.0625em;
+$length-thin: 0.125em;
+$length-tiny: 0.25em;
+$length-short: 0.5em;
+$length-normal: 1em;
+$length-long: 1.5em;
+
+// queries
+// TODO: write them
+
+// css variables
+:root {
+  // lengths
+  // TODO: replace custom properties woth SASS variables
+  --length-nano: 0.0625em;
+  --length-thin: 0.125em;
+  --length-tiny: 0.25em;
+  --length-short: 0.5em;
+  --length-normal: 1em;
+  --length-long: 1.5em;
+
+  // durations for transition and transform properties
+  --duration-none: 0;
+  --duration-fast: 0.25s;
+  --duration-norm: 0.5s;
+  --duration-slow: 1s;
+  --duration-global: var(--duration-fast);
+
+  --outline-default-width: 3px;
+  --outline-default-colour: var(--colour0-primary);
+  --outline-default-style: dashed;
+  --outline-default: 
+    var(--outline-default-width) 
+    var(--outline-default-colour) 
+    var(--outline-default-style);
+
+  @media (prefers-reduced-motion) {
+    --duration-global: var(--duration-none);
+  }
+}

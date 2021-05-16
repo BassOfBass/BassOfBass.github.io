@@ -17,7 +17,7 @@ html {
 *::after {
   box-sizing: inherit;
   margin: 0;
-  transition-property: color, background-color;
+  transition-property: color, background-color, opacity, visibility;
   transition-duration: var(--duration-global);
 }
 

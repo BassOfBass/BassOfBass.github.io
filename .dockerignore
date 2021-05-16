@@ -1,0 +1,4 @@
+node_modules
+/.bin
+*.code-workspace
+/docs

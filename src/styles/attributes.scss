@@ -5,7 +5,8 @@
 
 /* Normalize */
 *[hidden] {
-  display: none; // Add the correct display in IE 10.
+  // `hidden` items should be made visible by removing `hidden` attribute only
+  display: none !important;
 }
 
 button,
@@ -46,20 +47,10 @@ abbr {
 a {
   // local links
   &[href^="#"] {
-
-    &:link,
-    &:visited {
-      color: var(--colour-anchor-local-primary);
-    }
-  
-    &:hover{
-      background-color: var(--colour-anchor-local-quaternary);
-    }
-  
-    &:active{
-      color: var(--colour-anchor-local-secondary);
-      background-color: var(--colour-anchor-local-primary);
-    }
+    --local-colour-primary: var(--colour-anchor-local-primary);
+    --local-colour-secondary: var(--colour-anchor-local-secondary);
+    --local-colour-tertiary: var(--colour-anchor-local-quarternary);
+    --local-colour-quarternary: var(--colour-anchor-local-quarternary);
   }
 
   // internal links
@@ -68,24 +59,14 @@ a {
   &[href^="/"],
   &[href^="http://localhost:3000"],
   &[href^="https://bassofbass.github.io"] {
-    
-    &:link {
-      color: var(--colour-anchor-internal-primary);
-    }
-
-    &:visited {
-      color: var(--colour-anchor-internal-tertiary);
-    }
-
-    &:focus,
-    &:hover {
-      background-color: var(--colour-anchor-internal-quarternary);
-    }
-
-    &:active {
-      color: var(--colour-anchor-internal-secondary);
-      background-color: var(--colour-anchor-internal-primary);
-    }
+    --local-colour-primary: 
+      var(--colour-anchor-internal-primary);
+    --local-colour-secondary: 
+      var(--colour-anchor-internal-secondary);
+    --local-colour-tertiary: 
+      var(--colour-anchor-internal-primary);
+    --local-colour-quarternary: 
+      var(--colour-anchor-internal-quarternary);
   }
 }
 

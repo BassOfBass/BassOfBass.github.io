@@ -14,13 +14,5 @@
     "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/tbvaexdry87sqjmbzt5o.jpg", 
     "description": "This challenge will test both your layout and state management skills. As visitors make pledges, your goal is to keep track of the changes.", 
     "tags": "html css js"
-  },
-  { 
-    "title": "Todo App", 
-    "url": "/frontend-mentor/todo-app",
-    "originalURL": "https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW",
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/ty4ppudcq94rtgj4rv6p.jpg", 
-    "description": "The classic todo app with a few twists! This app includes a dark/light theme toggle and drag & drop reordering for anyone wanting an extra test.", 
-    "tags": "html css js"
   }
 ]

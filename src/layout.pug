@@ -1,4 +1,3 @@
-include mixins
 include pug-mixins/svg-icons.pug
 include pug-mixins/error-list.pug
 
@@ -10,17 +9,28 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
     block meta
+    block openGraph
     block title
       title BassOfBass's Personal site
-    +svgContainer()
   body
+    +svgContainer()
     header.global-header
       block globalHeader
         div.global-header__logo
           a.global-header__logo-link.image-link(href="/")
             +svgIcon("html", "global-header__logo-icon")
               
-        +globalNav()
+        -
+          const items = [
+            { url: "/", title: "Home", predicate: true },
+            //- { url: "/previews", predicate: true, title: "Previews" },
+            { url: "/frontend-mentor", title: "Challenges", predicate: true },
+          ]
+        nav.navigation-bar
+          ul.navigation-bar__navlist
+            for item in items
+              li.navigation-bar__nav-item
+                a.navigation-bar__nav-link(href=item.url) #{item.title}
 
         div
 
@@ -33,8 +43,11 @@ html(lang="en")
           div
             a(href="https://github.com/BassOfBass") My github
           div
-            a(href="https://github.com/BassOfBass/landing-page") Source files
+            a(href="https://github.com/BassOfBass/BassOfBass.github.io") Source files
         div.
           Icons made by #[a(href="https://www.freepik.com" title="Freepik") Freepik] from #[a(href="https://www.flaticon.com/" title="Flaticon") www.flaticon.com]
+      div.component-container(hidden)
+        block componentContainer
+        
 
     +errorList(errors)

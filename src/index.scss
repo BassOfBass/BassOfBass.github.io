@@ -2,12 +2,14 @@
   `Normalize.css` is already merged into this file, almost all `//` comments on the side are from normalize
   ! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css 
 */
-@use "styles/variables";
-@use "styles/sass_mixins";
-@use "styles/animations";
-@use "styles/base";
-@use "styles/attributes";
+@use "styles/variables.scss";
+@use "styles/themes";
+@use "styles/sass_mixins.scss";
+@use "styles/animations.scss";
+@use "styles/base.scss";
+@use "styles/attributes.scss";
 @use "layout.scss";
 @use "pug-mixins";
+@use "components";
 @use "pages/index";
 @use "frontend-mentor/frontend-mentor.scss";

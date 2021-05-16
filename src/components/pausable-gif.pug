@@ -1,0 +1,19 @@
+//- https://css-tricks.com/pause-gif-details-summary/
+mixin pausableGIF(gif, image)
+  div.pausable-gif
+    img.pausable-gif__static(
+      src=image.src, 
+      alt=`Static: ${image.alt ? image.alt : image.src}`, 
+      srcset=image.srcset ? image.srcset : image.src,
+      loading=lazy
+    )
+    details.pausable-gif__details(open)
+      summary.pausable-gif__summary(role="button", aria-label="static image")
+      div.pausable-gif__wrap
+        img.pausable-gif__gif(
+          src=gif.src, 
+          alt=`Animated: ${gif.alt ? gif.alt : gif.src}`, 
+          srcset=gif.srcset ? gif.srcset : gif.src,
+          loading="lazy"
+        )
+

@@ -1,0 +1,5 @@
+mixin timeFormatted(date=new Date(), className=null)
+  time(
+    class= className && className, 
+    datetime=date.toISOString()
+  ) #{date.toISOString()}

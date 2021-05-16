@@ -1,0 +1,56 @@
+include ../svg-icons.pug
+
+mixin todoList(todos)
+  ul#todo-list.todo-list
+    each todo in todos
+      li.todo-list__item(
+        id= todo.id
+        class= todo.isCompleted && "todo-list__item--completed"
+      ) 
+        button.todo-list__check(type="button")
+          +svgIcon("check")
+        p.todo-list__task #{todo.task}
+        ul.todo-list__meta
+          li.todo-list__meta-item
+            span.todo-list__created-title Created:
+            |
+            |
+            time.todo-list__created(datetime= todo.dateAdded) #{todo.dateAdded} 
+          li.todo-list__meta-item
+            span.todo-list__completed-title Completed:
+            |
+            |
+            time.todo-list__completed(datetime=todo.dateCompleted) #{todo.dateCompleted}
+          li.todo-list__meta-item
+            span.todo-list__removed-title Removed:
+            |
+            |
+            time.todo-list__removed(datetime="") 
+        button.todo-list__remove(type="button")
+          +svgIcon("cross")
+
+mixin todoItemSkeleton()
+  li.todo-list__item
+    button.todo-list__check(type="button")
+      +svgIcon("check")
+    p.todo-list__task
+    ul.todo-list__meta
+      li.todo-list__meta-item
+        span.todo-list__created-title Created:
+        |
+        |
+        time.todo-list__created(datetime="") 
+      li.todo-list__meta-item
+        span.todo-list__completed-title Completed:
+        |
+        |
+        time.todo-list__completed(datetime="")
+      li.todo-list__meta-item
+        span.todo-list__removed-title Completed:
+        |
+        |
+        time.todo-list__removed(datetime="")
+    button.todo-list__remove(type="button") 
+      +svgIcon("cross")
+    
+

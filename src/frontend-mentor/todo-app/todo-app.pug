@@ -1,5 +1,6 @@
-include ./components/todo-list.pug
+include ./components/component-container.pug
 include ./components/svg-icons.pug
+include ./components/todo-list/todo-list.pug
 
 doctype html
 html(lang="en")
@@ -19,9 +20,9 @@ html(lang="en")
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap",
     )
-    +svgContainer()
-  
+    
   body.gtheme(data-theme="dark")
+    +svgContainer()
     header.gheader
       div.gheader-image
         picture.light
@@ -41,11 +42,57 @@ html(lang="en")
         a(href="/frontend-mentor/todo-app") Todo
       div.gswitch
         button.gswitch-button(type="button")
-          +svgIcon("moon")
+          //- +svgIcon("moon")
           +svgIcon("sun")
 
     main.gmain
       section.todo-app
+        -
+          const todos = [
+            { 
+              task: "Complete online javascript course",
+              id: "uVMEeKJCVgYFoQbvjdFsZh",
+              isCompleted: true,
+              dateAdded: new Date().toISOString(),
+              dateCompleted: new Date().toISOString()
+            },
+            { 
+              task: "Jog around the park 3x",
+              id: "uQFspzch1hQGTSUxVeVd7W",
+              isCompleted: false,
+              dateAdded: new Date().toISOString(),
+              dateCompleted: null
+            },
+            { 
+              task: "10 minutes meditation",
+              id: "uEUU-5GLdeWQ2SrKEmXAAx",
+              isCompleted: false,
+              dateAdded: new Date().toISOString(),
+              dateCompleted: null
+            },
+            { 
+              task: "Read for 1 hour",
+              id: "u1DASzQ_rJ_z8iZNJLyEkQ",
+              isCompleted: false,
+              dateAdded: new Date().toISOString(),
+              dateCompleted: null
+            },
+            { 
+              task: "Pick up groceries",
+              id: "uNJyrjom60TPtnYMW_Dqzd",
+              isCompleted: false,
+              dateAdded: new Date().toISOString(),
+              dateCompleted: null
+            },
+            { 
+              task: "Complete Todo App on Frontend Mentor",
+              id: "uKykCAoUxllwELTMtnVPa-",
+              isCompleted: false,
+              dateAdded: new Date().toISOString(),
+              dateCompleted: null
+            },
+          ]
+          const currentTodos = todos.filter((todo) => !todo.isCompleted)
         form.new-todo
           div
             label.task-label(for="new-task") Create new todo:
@@ -60,24 +107,25 @@ html(lang="en")
           div
             button.todo-add(type="submit") +
 
-        div.todo-panel
-          +todoList()
+        div.todo-app__panel
+          +todoList(todos)
                 
-        div.todo-buttons
-          p 5 items left
+        div.todo-actions
+          p.todo-actions__info #[span.todo-actions__count #{currentTodos.length}] items left
           div
-            button(type="button") Clear Completed
+            button.todo-actions__clear(type="button") Clear Completed
 
-          div.todo-filters
+          div.todo-actions__filters
             button.todo-filter(type="button") All
             button.todo-filter(type="button") Active
             button.todo-filter(type="button") Completed
           
-          
-
-        p Drag and drop to reorder list
+        p.todo__notice Drag and drop to reorder list
 
     footer.gfooter
       address
         a(href="https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW") Challenge
+        a(href="http://") 
+      +componentContainer()
+      
 

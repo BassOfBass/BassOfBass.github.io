@@ -1,36 +1,49 @@
 import { nanoidHTML } from "@wp/lib/_index";
 
 /**
- * @param {HTMLElement} footer
- * @returns {{ container: HTMLElement, getComponent: (className: string) => Element }}
+ * @type {ComponentFactory.Container}
  */
-export function ComponentContainer(footer) {
-  const container = footer.querySelector(".component-container");
-  container.id = nanoidHTML();
-  const items = Array.from(
-    container.querySelectorAll(`#${container.id} > *`)
-  );
+const container = {
+  element: null,
+  id: null
+}
+/**
+ * @type {Map<string, ComponentFactory.Item}
+ */
+const components = new Map();
 
-  return {
-    container,
-    getComponent: getComponent(items)
+/**
+ * @param {HTMLElement} footer
+ */
+export function initComponentFactory(footer) {
+  container.element = footer.querySelector(".component-container");
+
+  // asign element's id to the container
+  // otherwise create a new one and assign to element
+  if (container.element.id) {
+    container.id = container.element.id;
+  } else {
+    container.id = nanoidHTML();
+    container.element.id = container.id;
   }
+
+  // fill out components map from DOM
+  Array.from(container.element.querySelectorAll(`#${container.id} > *`))
+    .forEach((element) => {
+      components.set(element.className, element);
+    })
 }
 
 /**
- * @param {Element[]} items 
- * @returns {(className: string) => Element}
+ * @param {string} className 
+ * @returns {ComponentFactory.Item}
  */
-function getComponent(items) {
-  return (className) => {
-    const component = items.find(({ classList }) => {
-      classList.contains(className);
-    });
+export function findComponent(className) {
+  const component = components.get(className);
 
-    if (!component) {
-      throw new Error(`No component under ${className} exists.`)
-    }
-
-    return component;
+  if (!component) {
+    throw new Error(`No component under ${className} exists.`)
   }
+
+  return component;
 }

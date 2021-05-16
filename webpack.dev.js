@@ -39,6 +39,11 @@ const config = {
       chunks: ["index"],
     }),
     new HTMLWebpackPlugin({
+      filename: "previews/table-stuff/index.html",
+      template: "./src/pages/previews/table-stuff/table-stuff.pug",
+      chunks: ["index"],
+    }),
+    new HTMLWebpackPlugin({
       filename: "frontend-mentor/todo-app/index.html",
       template: "./src/frontend-mentor/todo-app/todo-app.pug",
       chunks: ['FMtodoApp']

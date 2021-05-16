@@ -1,7 +1,10 @@
 const path = require("path");
+const { ContextReplacementPlugin } = require("webpack");
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 require('dotenv').config();
+
+const { supportedLanguages } = require("./configs/derived-vars");
 
 /**
  * @type {import("webpack").Configuration}
@@ -14,9 +17,13 @@ const webpackConfig = {
     
   },
   plugins: [
+    new ContextReplacementPlugin(
+      /date\-fns[\/\\]/,
+      new RegExp(`[/\\\\\](${supportedLanguages.join('|')})[/\\\\\]index\.js$`)
+    ),
     new HTMLWebpackPlugin({
       filename: 'index.html',
-      template: "./src/pages/home/home.pug",
+      template: "./src/frontend-mentor/frontend-mentor.pug",
       chunks: ['index'],
     }),
     new HTMLWebpackPlugin({
@@ -42,9 +49,10 @@ const webpackConfig = {
     
   ],
   resolve: {
-    extensions: [".js", "/_index.js", "/index.js"],
+    extensions: [".js"],
     alias: {
       ["@wp/assets"]: path.resolve(__dirname, "src/assets"),
+      ["@wp/components"]: path.resolve(__dirname, "src/components"),
       ["@wp/lib"]: path.resolve(__dirname, "src/lib"),
       ["@wp/pages"]: path.resolve(__dirname, "src/pages"),
       ["@wp/styles"]: path.resolve(__dirname, "src/styles"),
