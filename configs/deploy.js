@@ -2,9 +2,10 @@ const path = require("path");
 const fse = require("fs-extra");
 // const { format: formatDate } = require("date-fns");
 
-const workPath = process.cwd();
-const distPath = path.resolve(workPath, "dist");
-const deployPath = path.resolve(workPath, "docs");
+const { buildPath } = require("./vars");
+
+const distPath = path.resolve(process.cwd(), buildPath);
+const deployPath = path.resolve(process.cwd(), "docs");
 
 (async () => {
   try {
