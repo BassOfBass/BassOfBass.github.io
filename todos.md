@@ -8,3 +8,7 @@
 - write media query templates which take screen orientation into account, i.e. 1920x1080 in portrait mode would not hit `$width-laptop` query.
 - style input buttons as close to the original buttons as possible.
 - consolidate pie chart into a template
+- incorporate these package into workflow:
+  - [svgo](https://github.com/svg/svgo)
+  - [svgo-loader](https://github.com/svg/svgo-loader)
+  - [svg-sprite-loader](https://github.com/JetBrains/svg-sprite-loader)

@@ -20,7 +20,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.pug$/,
+        test: /\.pug$/i,
         use: [
           { 
             loader: 'simple-pug-loader',
@@ -76,6 +76,7 @@ const config = {
     path: path.resolve(buildPath),
     filename: "scripts/[name]-[contenthash].js",
     assetModuleFilename: "assets/[name]-[contenthash][ext][query]",
+    sourceMapFilename: "source-maps/[file].map[query]",
     publicPath: hostName,
     clean: true,
   },

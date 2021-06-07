@@ -14,7 +14,6 @@ const webpackConfig = {
     index: "./src/index.js",
     FMeasyBank: "./src/frontend-mentor/easybank/easybank.js",
     FMcrowdFunding: "./src/frontend-mentor/crowdfunding/crowdfunding.js",
-    
   },
   plugins: [
     new ContextReplacementPlugin(

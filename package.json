@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "predeploy": "npm run build",
+    "deploy": "node configs/deploy.js"
   },
   "repository": {
     "type": "git",
